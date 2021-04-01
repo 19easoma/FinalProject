@@ -52,6 +52,7 @@ public class MainMenu extends javax.swing.JFrame {
         btnToEquipment.setToolTipText("");
 
         btnToFight.setBackground(new java.awt.Color(255, 153, 153));
+        btnToFight.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnToFight.setText("Fight");
 
         btnToInventory.setBackground(new java.awt.Color(153, 255, 153));

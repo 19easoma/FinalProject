@@ -72,7 +72,7 @@ public class Inventory extends javax.swing.JFrame {
 
         btnEquipArmor.setText("Equip Armor");
 
-        btnEquipfromInv.setText("jButton1");
+        btnEquipfromInv.setText("Go To Equipment");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -177,7 +177,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnEquipfromInv">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Go To Equipment"/>
       </Properties>
     </Component>
   </SubComponents>

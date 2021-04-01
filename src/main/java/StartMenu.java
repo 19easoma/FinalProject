@@ -1,3 +1,7 @@
+
+import javax.swing.JOptionPane;
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -41,8 +45,18 @@ public class StartMenu extends javax.swing.JFrame {
         lblTitleName.setText("Title");
 
         btnCloseStart.setText("Close");
+        btnCloseStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseStartActionPerformed(evt);
+            }
+        });
 
         btnConfirmName.setText("Confirm");
+        btnConfirmName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmNameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,6 +98,25 @@ public class StartMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCloseStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseStartActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCloseStartActionPerformed
+
+    private void btnConfirmNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmNameActionPerformed
+        // TODO add your handling code here:
+        String PlayerName = txtEnterName.getText();
+        Player Player = new Player(PlayerName,0,0,0,0,0,0);
+        
+        JOptionPane.showMessageDialog(null, "You have chosen the name "+ Player.getPlayerName());
+        //delete this
+        System.out.println(Player.getPlayerName());
+        
+        SelectClass selectClassScreen = new SelectClass();
+        selectClassScreen.show();
+        this.dispose();
+    }//GEN-LAST:event_btnConfirmNameActionPerformed
 
     /**
      * @param args the command line arguments
