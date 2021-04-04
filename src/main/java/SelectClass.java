@@ -134,16 +134,16 @@ public class SelectClass extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChooseKnightClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseKnightClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(11,4,7,3,7,2);
+        Player Player = new Player(1,11,4,7,3,7,2);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Knight class");
-        //NAME DOES NOT TRANSFER OVER
         //delete these
-        System.out.println(Player.getPlayerName());
+        System.out.println(Global.getPlayerName());
         System.out.println(Player.getVitality());
         
         MainMenu MainMenuScreen = new MainMenu();
@@ -153,12 +153,11 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseSorcererClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseSorcererClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(6,12,3,10,3,5);
+        Player Player = new Player(1,6,12,3,10,3,5);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Sorcerer class");
-        //NAME DOES NOT TRANSFER OVER
         //delete these
-        System.out.println(Player.getPlayerName());
+        System.out.println(Global.getPlayerName());
         System.out.println(Player.getVitality());
         
         MainMenu MainMenuScreen = new MainMenu();
@@ -168,12 +167,11 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseHunterClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseHunterClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(8,8,5,4,5,8);
+        Player Player = new Player(1,8,8,5,4,5,8);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Hunter class");
-        //NAME DOES NOT TRANSFER OVER
         //delete these
-        System.out.println(Player.getPlayerName());
+        System.out.println(Global.getPlayerName());
         System.out.println(Player.getVitality());
         
         MainMenu MainMenuScreen = new MainMenu();

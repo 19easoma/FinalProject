@@ -9,90 +9,80 @@
  * @author antho
  */
 public class Player {
-    private String PlayerName;
-    private int Vitality;
-    private int Mana;
-    private int Power;
-    private int Wisdom;
-    private int Defense;
-    private int Agility;
+    private static int Level;
+    private static int Vitality;
+    private static int Mana;
+    private static int Power;
+    private static int Wisdom;
+    private static int Defense;
+    private static int Agility;
 
-    public Player(int Vitality, int Mana, int Power, int Wisdom, int Defense, int Agility) {
-        this.Vitality = Vitality;
-        this.Mana = Mana;
-        this.Power = Power;
-        this.Wisdom = Wisdom;
-        this.Defense = Defense;
-        this.Agility = Agility;
-    }
-
-    
-    
-    public Player(String PlayerName, int Vitality, int Mana, int Power, int Wisdom, int Defense, int Agility) {
-        this.PlayerName = PlayerName;
-        this.Vitality = Vitality;
-        this.Mana = Mana;
-        this.Power = Power;
-        this.Wisdom = Wisdom;
-        this.Defense = Defense;
-        this.Agility = Agility;
-    }
-    
-    public String getPlayerName() {
-        return PlayerName;
+    public Player(int Level, int Vitality, int Mana, int Power, int Wisdom, int Defense, int Agility) {
+        Player.Level = Level;
+        Player.Vitality = Vitality;
+        Player.Mana = Mana;
+        Player.Power = Power;
+        Player.Wisdom = Wisdom;
+        Player.Defense = Defense;
+        Player.Agility = Agility;
     }
 
-    public void setPlayerName(String PlayerName) {
-        this.PlayerName = PlayerName;
+    public static int getLevel() {
+        return Level;
     }
-    
-    public int getVitality() {
+
+    public static void setLevel(int Level) {
+        Player.Level = Level;
+    }
+
+    public static int getVitality() {
         return Vitality;
     }
 
-    public void setVitality(int Vitality) {
-        this.Vitality = Vitality;
+    public static void setVitality(int Vitality) {
+        Player.Vitality = Vitality;
     }
 
-    public int getMana() {
+    public static int getMana() {
         return Mana;
     }
 
-    public void setMana(int Mana) {
-        this.Mana = Mana;
+    public static void setMana(int Mana) {
+        Player.Mana = Mana;
     }
 
-    public int getPower() {
+    public static int getPower() {
         return Power;
     }
 
-    public void setPower(int Power) {
-        this.Power = Power;
+    public static void setPower(int Power) {
+        Player.Power = Power;
     }
 
-    public int getWisdom() {
+    public static int getWisdom() {
         return Wisdom;
     }
 
-    public void setWisdom(int Wisdom) {
-        this.Wisdom = Wisdom;
+    public static void setWisdom(int Wisdom) {
+        Player.Wisdom = Wisdom;
     }
 
-    public int getDefense() {
+    public static int getDefense() {
         return Defense;
     }
 
-    public void setDefense(int Defense) {
-        this.Defense = Defense;
+    public static void setDefense(int Defense) {
+        Player.Defense = Defense;
     }
 
-    public int getAgility() {
+    public static int getAgility() {
         return Agility;
     }
 
-    public void setAgility(int Agility) {
-        this.Agility = Agility;
+    public static void setAgility(int Agility) {
+        Player.Agility = Agility;
     }
+
     
     
 }

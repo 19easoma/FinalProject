@@ -9,7 +9,6 @@
  * @author antho
  */
 public class MainMenu extends javax.swing.JFrame {
-
     /**
      * Creates new form MainMenu
      */
@@ -30,7 +29,7 @@ public class MainMenu extends javax.swing.JFrame {
         btnToShop = new javax.swing.JButton();
         btnCloseMain = new javax.swing.JButton();
         btnToEquipment = new javax.swing.JButton();
-        btnToFight = new javax.swing.JButton();
+        btnToJourney = new javax.swing.JButton();
         btnToInventory = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         areaStatus1 = new javax.swing.JTextArea();
@@ -44,33 +43,58 @@ public class MainMenu extends javax.swing.JFrame {
 
         btnToShop.setBackground(new java.awt.Color(153, 153, 255));
         btnToShop.setText("Go to Shop");
+        btnToShop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnToShopActionPerformed(evt);
+            }
+        });
 
         btnCloseMain.setText("Close");
+        btnCloseMain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseMainActionPerformed(evt);
+            }
+        });
 
         btnToEquipment.setBackground(new java.awt.Color(153, 255, 153));
         btnToEquipment.setText("Go to Equipment");
         btnToEquipment.setToolTipText("");
+        btnToEquipment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnToEquipmentActionPerformed(evt);
+            }
+        });
 
-        btnToFight.setBackground(new java.awt.Color(255, 153, 153));
-        btnToFight.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnToFight.setText("Fight");
+        btnToJourney.setBackground(new java.awt.Color(255, 153, 153));
+        btnToJourney.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnToJourney.setText("Journey");
+        btnToJourney.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnToJourneyActionPerformed(evt);
+            }
+        });
 
         btnToInventory.setBackground(new java.awt.Color(153, 255, 153));
         btnToInventory.setText("Go to Inventory");
         btnToInventory.setToolTipText("");
+        btnToInventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnToInventoryActionPerformed(evt);
+            }
+        });
 
-        areaStatus1.setColumns(20);
+        areaStatus1.setColumns(1);
+        areaStatus1.setLineWrap(true);
         areaStatus1.setRows(5);
-        areaStatus1.setText("Level\nExperience\nGold\nHealth\nMana");
         areaStatus1.setToolTipText("");
         jScrollPane1.setViewportView(areaStatus1);
 
-        areaStatus2.setColumns(20);
+        areaStatus2.setColumns(1);
+        areaStatus2.setLineWrap(true);
         areaStatus2.setRows(5);
-        areaStatus2.setText("Power\nWisdom\nDefense\nAgility");
         jScrollPane2.setViewportView(areaStatus2);
 
-        lblStatus.setText("Status");
+        lblStatus.setText("Status for " + Global.getPlayerName());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,18 +103,17 @@ public class MainMenu extends javax.swing.JFrame {
             .addComponent(btnCloseMain, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnToFight, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnToInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblStatus)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnToJourney, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnToInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblStatus)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnToShop, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnToEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -99,12 +122,12 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(lblStatus)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnToFight, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnToJourney, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnToShop, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -116,7 +139,41 @@ public class MainMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCloseMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseMainActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCloseMainActionPerformed
+
+    private void btnToInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToInventoryActionPerformed
+        // TODO add your handling code here:
+        Inventory InventoryScreen = new Inventory();
+        InventoryScreen.show();
+        this.dispose();
+    }//GEN-LAST:event_btnToInventoryActionPerformed
+
+    private void btnToEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToEquipmentActionPerformed
+        // TODO add your handling code here:
+        Equipment EquipmentScreen = new Equipment();
+        EquipmentScreen.show();
+        this.dispose();
+    }//GEN-LAST:event_btnToEquipmentActionPerformed
+
+    private void btnToJourneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToJourneyActionPerformed
+        // TODO add your handling code here:
+        JourneyMenu JourneyMenuScreen = new JourneyMenu();
+        JourneyMenuScreen.show();
+        this.dispose();
+    }//GEN-LAST:event_btnToJourneyActionPerformed
+
+    private void btnToShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToShopActionPerformed
+        // TODO add your handling code here:
+        ShopMenu ShopMenuScreen = new ShopMenu();
+        ShopMenuScreen.show();
+        this.dispose();
+    }//GEN-LAST:event_btnToShopActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,6 +184,17 @@ public class MainMenu extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        areaStatus1.setText("Level: " + String.valueOf(Player.getLevel()));
+        areaStatus1.setText("Experience: ");
+        areaStatus1.setText("Gold: ");
+        areaStatus1.setText("Vitality: " + String.valueOf(Player.getVitality()));
+        areaStatus1.setText("Mana: " + String.valueOf(Player.getMana()));
+        
+        areaStatus2.append("Power: " + String.valueOf(Player.getPower()));
+        areaStatus2.append("Wisdom: " + String.valueOf(Player.getWisdom()));
+        areaStatus2.append("Defense: " + String.valueOf(Player.getDefense()));
+        areaStatus2.append("Agility: " + String.valueOf(Player.getAgility()));
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -151,15 +219,17 @@ public class MainMenu extends javax.swing.JFrame {
                 new MainMenu().setVisible(true);
             }
         });
+        
     }
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea areaStatus1;
-    private javax.swing.JTextArea areaStatus2;
+    private static javax.swing.JTextArea areaStatus1;
+    private static javax.swing.JTextArea areaStatus2;
     private javax.swing.JButton btnCloseMain;
     private javax.swing.JButton btnToEquipment;
-    private javax.swing.JButton btnToFight;
     private javax.swing.JButton btnToInventory;
+    private javax.swing.JButton btnToJourney;
     private javax.swing.JButton btnToShop;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;

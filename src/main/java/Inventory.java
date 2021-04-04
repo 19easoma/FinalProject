@@ -51,8 +51,18 @@ public class Inventory extends javax.swing.JFrame {
         lblInventory.setText("Current Inventory");
 
         btnMainfromInventory.setText("Main Menu");
+        btnMainfromInventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMainfromInventoryActionPerformed(evt);
+            }
+        });
 
         btnCloseInventory.setText("Close");
+        btnCloseInventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseInventoryActionPerformed(evt);
+            }
+        });
 
         areaArmorInventory.setColumns(20);
         areaArmorInventory.setRows(5);
@@ -73,6 +83,11 @@ public class Inventory extends javax.swing.JFrame {
         btnEquipArmor.setText("Equip Armor");
 
         btnEquipfromInv.setText("Go To Equipment");
+        btnEquipfromInv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEquipfromInvActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,7 +146,27 @@ public class Inventory extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCloseInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseInventoryActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCloseInventoryActionPerformed
+
+    private void btnMainfromInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainfromInventoryActionPerformed
+        // TODO add your handling code here:
+        MainMenu MainMenuScreen = new MainMenu();
+        MainMenuScreen.show();
+        this.dispose();
+    }//GEN-LAST:event_btnMainfromInventoryActionPerformed
+
+    private void btnEquipfromInvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipfromInvActionPerformed
+        // TODO add your handling code here:
+        Equipment EquipmentScreen = new Equipment();
+        EquipmentScreen.show();
+        this.dispose();
+    }//GEN-LAST:event_btnEquipfromInvActionPerformed
 
     /**
      * @param args the command line arguments

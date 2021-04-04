@@ -97,6 +97,7 @@ public class StartMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseStartActionPerformed
@@ -107,11 +108,11 @@ public class StartMenu extends javax.swing.JFrame {
     private void btnConfirmNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmNameActionPerformed
         // TODO add your handling code here:
         String PlayerName = txtEnterName.getText();
-        Player Player = new Player(PlayerName,0,0,0,0,0,0);
+        Global Player = new Global(PlayerName);
         
-        JOptionPane.showMessageDialog(null, "You have chosen the name "+ Player.getPlayerName());
+        JOptionPane.showMessageDialog(null, "You have chosen the name "+ Global.getPlayerName());
         //delete this
-        System.out.println(Player.getPlayerName());
+        System.out.println(Global.getPlayerName());
         
         SelectClass selectClassScreen = new SelectClass();
         selectClassScreen.show();

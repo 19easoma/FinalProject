@@ -8,12 +8,12 @@
  *
  * @author antho
  */
-public class EquipmentScreen extends javax.swing.JFrame {
+public class Equipment extends javax.swing.JFrame {
 
     /**
      * Creates new form EquipmentScreen
      */
-    public EquipmentScreen() {
+    public Equipment() {
         initComponents();
     }
 
@@ -53,20 +53,37 @@ public class EquipmentScreen extends javax.swing.JFrame {
         lblLegsSlot.setText("Legs");
 
         btnInvFromEquip.setText("Go To Inventory");
+        btnInvFromEquip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInvFromEquipActionPerformed(evt);
+            }
+        });
 
-        areaEquipStatus1.setColumns(20);
+        areaEquipStatus1.setColumns(1);
+        areaEquipStatus1.setLineWrap(true);
         areaEquipStatus1.setRows(5);
         areaEquipStatus1.setText("Level\nExperience\nGold\nHealth\nMana");
         jScrollPane1.setViewportView(areaEquipStatus1);
 
-        areaEquipStatus2.setColumns(20);
+        areaEquipStatus2.setColumns(1);
+        areaEquipStatus2.setLineWrap(true);
         areaEquipStatus2.setRows(5);
         areaEquipStatus2.setText("Power\nWisdom\nDefense\nAgility\n");
         jScrollPane2.setViewportView(areaEquipStatus2);
 
         btnMainFromEquip.setText("Main Menu");
+        btnMainFromEquip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMainFromEquipActionPerformed(evt);
+            }
+        });
 
         btnCloseEquipment.setText("Close");
+        btnCloseEquipment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseEquipmentActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,34 +103,31 @@ public class EquipmentScreen extends javax.swing.JFrame {
                     .addComponent(txtChestSlot)
                     .addComponent(txtLegsSlot, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addComponent(btnMainFromEquip)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnInvFromEquip)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
                 .addComponent(btnCloseEquipment))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(lblHeadSlot)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtHeadSlot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblWeaponSlot)
-                            .addComponent(lblChestSlot))))
+                            .addComponent(lblChestSlot))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,7 +147,27 @@ public class EquipmentScreen extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCloseEquipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseEquipmentActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCloseEquipmentActionPerformed
+
+    private void btnMainFromEquipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainFromEquipActionPerformed
+        // TODO add your handling code here:
+        MainMenu MainMenuScreen = new MainMenu();
+        MainMenuScreen.show();
+        this.dispose();
+    }//GEN-LAST:event_btnMainFromEquipActionPerformed
+
+    private void btnInvFromEquipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvFromEquipActionPerformed
+        // TODO add your handling code here:
+        Inventory InventoryScreen = new Inventory();
+        InventoryScreen.show();
+        this.dispose();
+    }//GEN-LAST:event_btnInvFromEquipActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,20 +186,20 @@ public class EquipmentScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EquipmentScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Equipment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EquipmentScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Equipment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EquipmentScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Equipment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EquipmentScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Equipment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EquipmentScreen().setVisible(true);
+                new Equipment().setVisible(true);
             }
         });
     }
