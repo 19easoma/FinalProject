@@ -9,68 +9,80 @@
  * @author antho
  */
 public class Monster {
-    private int Vitality;
-    private int DroppedEXP;
-    private int DroppedGold;
-    private int Power;
-    private int Defense;
-    private int Agility;
+    private static int MaxVitality;
+    private static int CurrentVitality;
+    private static int DroppedEXP;
+    private static int DroppedGold;
+    private static int Power;
+    private static int Defense;
+    private static int Agility;
 
-    public Monster(int Vitality, int DroppedEXP, int DroppedGold, int Power, int Defense, int Agility) {
-        this.Vitality = Vitality;
-        this.DroppedEXP = DroppedEXP;
-        this.DroppedGold = DroppedGold;
-        this.Power = Power;
-        this.Defense = Defense;
-        this.Agility = Agility;
+    public Monster(int MaxVitality, int CurrentVitality, int DroppedEXP, int DroppedGold, int Power, int Defense, int Agility) {
+        Monster.MaxVitality = MaxVitality;
+        Monster.CurrentVitality = CurrentVitality;
+        Monster.DroppedEXP = DroppedEXP;
+        Monster.DroppedGold = DroppedGold;
+        Monster.Power = Power;
+        Monster.Defense = Defense;
+        Monster.Agility = Agility;
     }
 
-    public int getVitality() {
-        return Vitality;
+    public static int getMaxVitality() {
+        return MaxVitality;
     }
 
-    public void setVitality(int Vitality) {
-        this.Vitality = Vitality;
+    public static void setMaxVitality(int MaxVitality) {
+        Monster.MaxVitality = MaxVitality;
     }
 
-    public int getDroppedEXP() {
+    public static int getCurrentVitality() {
+        return CurrentVitality;
+    }
+
+    public static void setCurrentVitality(int CurrentVitality) {
+        Monster.CurrentVitality = CurrentVitality;
+    }
+
+    public static int getDroppedEXP() {
         return DroppedEXP;
     }
 
-    public void setDroppedEXP(int DroppedEXP) {
-        this.DroppedEXP = DroppedEXP;
+    public static void setDroppedEXP(int DroppedEXP) {
+        Monster.DroppedEXP = DroppedEXP;
     }
 
-    public int getDroppedGold() {
+    public static int getDroppedGold() {
         return DroppedGold;
     }
 
-    public void setDroppedGold(int DroppedGold) {
-        this.DroppedGold = DroppedGold;
+    public static void setDroppedGold(int DroppedGold) {
+        Monster.DroppedGold = DroppedGold;
     }
 
-    public int getPower() {
+    public static int getPower() {
         return Power;
     }
 
-    public void setPower(int Power) {
-        this.Power = Power;
+    public static void setPower(int Power) {
+        Monster.Power = Power;
     }
 
-    public int getDefense() {
+    public static int getDefense() {
         return Defense;
     }
 
-    public void setDefense(int Defense) {
-        this.Defense = Defense;
+    public static void setDefense(int Defense) {
+        Monster.Defense = Defense;
     }
 
-    public int getAgility() {
+    public static int getAgility() {
         return Agility;
     }
 
-    public void setAgility(int Agility) {
-        this.Agility = Agility;
+    public static void setAgility(int Agility) {
+        Monster.Agility = Agility;
     }
+    
+    
 
 }

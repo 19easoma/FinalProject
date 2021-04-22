@@ -59,13 +59,13 @@
                   <Component id="btnChooseHunterClass" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnChooseSorcererClass" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jScrollPane3" pref="133" max="32767" attributes="0"/>
-                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -129,8 +129,8 @@
           <Properties>
             <Property name="columns" type="int" value="1"/>
             <Property name="lineWrap" type="boolean" value="true"/>
-            <Property name="rows" type="int" value="7"/>
-            <Property name="text" type="java.lang.String" value="Vitality: 11 &#xa;Mana: 4 &#xa;Power: 7 &#xa;Wisdom: 3 &#xa;Defense: 7 &#xa;Agility: 2 &#xa;Weapon: Wooden Sword  "/>
+            <Property name="rows" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="Level: 1&#xa;Vitality: 18&#xa;Power: 6&#xa;Defense: 6"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -146,8 +146,8 @@
           <Properties>
             <Property name="columns" type="int" value="1"/>
             <Property name="lineWrap" type="boolean" value="true"/>
-            <Property name="rows" type="int" value="7"/>
-            <Property name="text" type="java.lang.String" value="Vitality: 8&#xa;Mana: 8&#xa;Power: 5 &#xa;Wisdom: 4 &#xa;Defense: 5 &#xa;Agility: 8&#xa;Weapon: Oak Bow"/>
+            <Property name="rows" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="Level: 1&#xa;Vitality: 12&#xa;Power: 7&#xa;Defense: 3"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Text Cursor"/>
             </Property>
@@ -169,8 +169,8 @@
           <Properties>
             <Property name="columns" type="int" value="1"/>
             <Property name="lineWrap" type="boolean" value="true"/>
-            <Property name="rows" type="int" value="7"/>
-            <Property name="text" type="java.lang.String" value="Vitality: 6&#xa;Mana: 12&#xa;Power: 3&#xa;Wisdom: 10 &#xa;Defense: 3 &#xa;Agility: 5&#xa;Weapon: Oak Wand"/>
+            <Property name="rows" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="Level: 1&#xa;Vitality: 9&#xa;Power: 12&#xa;Defense: 2"/>
           </Properties>
         </Component>
       </SubComponents>

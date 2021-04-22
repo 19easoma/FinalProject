@@ -10,21 +10,17 @@
  */
 public class Player {
     private static int Level;
-    private static int Vitality;
-    private static int Mana;
+    private static int MaxVitality;
+    private static int CurrentVitality;
     private static int Power;
-    private static int Wisdom;
     private static int Defense;
-    private static int Agility;
 
-    public Player(int Level, int Vitality, int Mana, int Power, int Wisdom, int Defense, int Agility) {
+    public Player(int Level, int MaxVitality, int CurrentVitality, int Power, int Defense) {
         Player.Level = Level;
-        Player.Vitality = Vitality;
-        Player.Mana = Mana;
+        Player.MaxVitality = MaxVitality;
+        Player.CurrentVitality = CurrentVitality;
         Player.Power = Power;
-        Player.Wisdom = Wisdom;
         Player.Defense = Defense;
-        Player.Agility = Agility;
     }
 
     public static int getLevel() {
@@ -35,20 +31,20 @@ public class Player {
         Player.Level = Level;
     }
 
-    public static int getVitality() {
-        return Vitality;
+    public static int getMaxVitality() {
+        return MaxVitality;
     }
 
-    public static void setVitality(int Vitality) {
-        Player.Vitality = Vitality;
+    public static void setMaxVitality(int MaxVitality) {
+        Player.MaxVitality = MaxVitality;
+    }
+    
+    public static int getCurrentVitality() {
+        return CurrentVitality;
     }
 
-    public static int getMana() {
-        return Mana;
-    }
-
-    public static void setMana(int Mana) {
-        Player.Mana = Mana;
+    public static void setCurrentVitality(int CurrentVitality) {
+        Player.CurrentVitality = CurrentVitality;
     }
 
     public static int getPower() {
@@ -59,14 +55,6 @@ public class Player {
         Player.Power = Power;
     }
 
-    public static int getWisdom() {
-        return Wisdom;
-    }
-
-    public static void setWisdom(int Wisdom) {
-        Player.Wisdom = Wisdom;
-    }
-
     public static int getDefense() {
         return Defense;
     }
@@ -74,15 +62,4 @@ public class Player {
     public static void setDefense(int Defense) {
         Player.Defense = Defense;
     }
-
-    public static int getAgility() {
-        return Agility;
-    }
-
-    public static void setAgility(int Agility) {
-        Player.Agility = Agility;
-    }
-
-    
-    
 }

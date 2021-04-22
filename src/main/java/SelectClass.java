@@ -73,22 +73,22 @@ public class SelectClass extends javax.swing.JFrame {
 
         jTextArea1.setColumns(1);
         jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(7);
-        jTextArea1.setText("Vitality: 11 \nMana: 4 \nPower: 7 \nWisdom: 3 \nDefense: 7 \nAgility: 2 \nWeapon: Wooden Sword  ");
+        jTextArea1.setRows(4);
+        jTextArea1.setText("Level: 1\nVitality: 18\nPower: 6\nDefense: 6");
         jScrollPane1.setViewportView(jTextArea1);
 
         jTextArea2.setColumns(1);
         jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(7);
-        jTextArea2.setText("Vitality: 8\nMana: 8\nPower: 5 \nWisdom: 4 \nDefense: 5 \nAgility: 8\nWeapon: Oak Bow");
+        jTextArea2.setRows(4);
+        jTextArea2.setText("Level: 1\nVitality: 12\nPower: 7\nDefense: 3");
         jTextArea2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextArea2.setMaximumSize(new java.awt.Dimension(124, 130));
         jScrollPane2.setViewportView(jTextArea2);
 
         jTextArea3.setColumns(1);
         jTextArea3.setLineWrap(true);
-        jTextArea3.setRows(7);
-        jTextArea3.setText("Vitality: 6\nMana: 12\nPower: 3\nWisdom: 10 \nDefense: 3 \nAgility: 5\nWeapon: Oak Wand");
+        jTextArea3.setRows(4);
+        jTextArea3.setText("Level: 1\nVitality: 9\nPower: 12\nDefense: 2");
         jScrollPane3.setViewportView(jTextArea3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -125,12 +125,12 @@ public class SelectClass extends javax.swing.JFrame {
                     .addComponent(btnChooseKnightClass)
                     .addComponent(btnChooseHunterClass)
                     .addComponent(btnChooseSorcererClass))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,12 +139,12 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseKnightClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseKnightClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,11,4,7,3,7,2);
+        Player Player = new Player(1,18,18,4,6);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Knight class");
         //delete these
         System.out.println(Global.getPlayerName());
-        System.out.println(Player.getVitality());
+        System.out.println(Player.getMaxVitality());
         
         MainMenu MainMenuScreen = new MainMenu();
         MainMenuScreen.show();
@@ -153,12 +153,12 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseSorcererClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseSorcererClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,6,12,3,10,3,5);
+        Player Player = new Player(1,9,9,12,2);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Sorcerer class");
         //delete these
         System.out.println(Global.getPlayerName());
-        System.out.println(Player.getVitality());
+        System.out.println(Player.getMaxVitality());
         
         MainMenu MainMenuScreen = new MainMenu();
         MainMenuScreen.show();
@@ -167,12 +167,12 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseHunterClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseHunterClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,8,8,5,4,5,8);
+        Player Player = new Player(1,12,12,7,3);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Hunter class");
         //delete these
         System.out.println(Global.getPlayerName());
-        System.out.println(Player.getVitality());
+        System.out.println(Player.getMaxVitality());
         
         MainMenu MainMenuScreen = new MainMenu();
         MainMenuScreen.show();

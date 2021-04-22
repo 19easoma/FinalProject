@@ -1,3 +1,8 @@
+
+import javafx.scene.paint.Color;
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,7 +21,7 @@ public class JourneyMenu extends javax.swing.JFrame {
     public JourneyMenu() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,7 +31,18 @@ public class JourneyMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         btnCloseJourney = new javax.swing.JButton();
+        prgPlayerHealth = new javax.swing.JProgressBar();
+        prgEnemyHealth = new javax.swing.JProgressBar();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnAttack = new javax.swing.JButton();
+        rdPotion = new javax.swing.JRadioButton();
+        rdMegaPotion = new javax.swing.JRadioButton();
+        rdMaxPotion = new javax.swing.JRadioButton();
+        btnHeal = new javax.swing.JButton();
+        btnStartBattle = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,18 +53,88 @@ public class JourneyMenu extends javax.swing.JFrame {
             }
         });
 
+        prgPlayerHealth.setForeground(new java.awt.Color(0, 255, 0));
+        prgPlayerHealth.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        prgPlayerHealth.setOpaque(true);
+        prgPlayerHealth.setString("10%");
+
+        prgEnemyHealth.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        prgEnemyHealth.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jLabel1.setText("Health: " + Player.getCurrentVitality() + " / " + Player.getMaxVitality());
+
+        jLabel2.setText("Health: " + Monster.getCurrentVitality() + " / " + Monster.getMaxVitality());
+
+        btnAttack.setBackground(new java.awt.Color(255, 153, 153));
+        btnAttack.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnAttack.setText("Attack");
+
+        rdPotion.setText("Potion");
+
+        rdMegaPotion.setText("Mega Potion");
+
+        rdMaxPotion.setText("Max Potion");
+
+        btnHeal.setBackground(new java.awt.Color(153, 255, 153));
+        btnHeal.setText("Heal");
+
+        btnStartBattle.setText("Start");
+        btnStartBattle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartBattleActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 612, Short.MAX_VALUE)
+                .addGap(0, 506, Short.MAX_VALUE)
                 .addComponent(btnCloseJourney))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnHeal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(prgPlayerHealth, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rdMaxPotion, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rdMegaPotion, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rdPotion, javax.swing.GroupLayout.Alignment.LEADING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(btnStartBattle)
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(prgEnemyHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 426, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(prgPlayerHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(prgEnemyHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)))
+                    .addComponent(btnStartBattle))
+                .addGap(2, 2, 2)
+                .addComponent(btnAttack, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addComponent(rdPotion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rdMegaPotion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rdMaxPotion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnHeal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(4, 4, 4)
                 .addComponent(btnCloseJourney))
         );
 
@@ -60,6 +146,15 @@ public class JourneyMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnCloseJourneyActionPerformed
+
+    private void btnStartBattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartBattleActionPerformed
+        // TODO add your handling code here:
+        prgPlayerHealth.setMaximum(Player.getMaxVitality());
+        prgPlayerHealth.setValue(Player.getCurrentVitality());
+        
+        prgEnemyHealth.setMaximum(Monster.getMaxVitality());
+        prgEnemyHealth.setValue(Monster.getCurrentVitality());
+    }//GEN-LAST:event_btnStartBattleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -95,9 +190,21 @@ public class JourneyMenu extends javax.swing.JFrame {
             }
         });
         
+        prgPlayerHealth.setValue(prgPlayerHealth.getValue());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAttack;
     private javax.swing.JButton btnCloseJourney;
+    private javax.swing.JButton btnHeal;
+    private javax.swing.JButton btnStartBattle;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private static javax.swing.JProgressBar prgEnemyHealth;
+    private static javax.swing.JProgressBar prgPlayerHealth;
+    private javax.swing.JRadioButton rdMaxPotion;
+    private javax.swing.JRadioButton rdMegaPotion;
+    private javax.swing.JRadioButton rdPotion;
     // End of variables declaration//GEN-END:variables
 }

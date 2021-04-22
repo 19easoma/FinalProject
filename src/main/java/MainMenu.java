@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -33,8 +34,6 @@ public class MainMenu extends javax.swing.JFrame {
         btnToInventory = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         areaStatus1 = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        areaStatus2 = new javax.swing.JTextArea();
         lblStatus = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
@@ -59,6 +58,7 @@ public class MainMenu extends javax.swing.JFrame {
         btnToEquipment.setBackground(new java.awt.Color(153, 255, 153));
         btnToEquipment.setText("Go to Equipment");
         btnToEquipment.setToolTipText("");
+        btnToEquipment.setEnabled(false);
         btnToEquipment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnToEquipmentActionPerformed(evt);
@@ -77,6 +77,7 @@ public class MainMenu extends javax.swing.JFrame {
         btnToInventory.setBackground(new java.awt.Color(153, 255, 153));
         btnToInventory.setText("Go to Inventory");
         btnToInventory.setToolTipText("");
+        btnToInventory.setEnabled(false);
         btnToInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnToInventoryActionPerformed(evt);
@@ -85,14 +86,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         areaStatus1.setColumns(1);
         areaStatus1.setLineWrap(true);
-        areaStatus1.setRows(5);
+        areaStatus1.setRows(4);
+        areaStatus1.setText("Level: " + String.valueOf(Player.getLevel()) + "\n" + "Vitality: " + String.valueOf(Player.getMaxVitality()) + "\n" + "Power: " + String.valueOf(Player.getPower()) + "\n" + "Defense: " + String.valueOf(Player.getDefense())
+        );
         areaStatus1.setToolTipText("");
         jScrollPane1.setViewportView(areaStatus1);
-
-        areaStatus2.setColumns(1);
-        areaStatus2.setLineWrap(true);
-        areaStatus2.setRows(5);
-        jScrollPane2.setViewportView(areaStatus2);
 
         lblStatus.setText("Status for " + Global.getPlayerName());
 
@@ -104,28 +102,29 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnToJourney, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnToInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblStatus)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnToShop, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnToEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnToJourney, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnToInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnToShop, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnToEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblStatus)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(178, 178, 178))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(lblStatus)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnToJourney, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -184,17 +183,6 @@ public class MainMenu extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        areaStatus1.setText("Level: " + String.valueOf(Player.getLevel()));
-        areaStatus1.setText("Experience: ");
-        areaStatus1.setText("Gold: ");
-        areaStatus1.setText("Vitality: " + String.valueOf(Player.getVitality()));
-        areaStatus1.setText("Mana: " + String.valueOf(Player.getMana()));
-        
-        areaStatus2.append("Power: " + String.valueOf(Player.getPower()));
-        areaStatus2.append("Wisdom: " + String.valueOf(Player.getWisdom()));
-        areaStatus2.append("Defense: " + String.valueOf(Player.getDefense()));
-        areaStatus2.append("Agility: " + String.valueOf(Player.getAgility()));
-        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -224,8 +212,7 @@ public class MainMenu extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private static javax.swing.JTextArea areaStatus1;
-    private static javax.swing.JTextArea areaStatus2;
+    private javax.swing.JTextArea areaStatus1;
     private javax.swing.JButton btnCloseMain;
     private javax.swing.JButton btnToEquipment;
     private javax.swing.JButton btnToInventory;
@@ -233,7 +220,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnToShop;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblStatus;
     // End of variables declaration//GEN-END:variables
 }
