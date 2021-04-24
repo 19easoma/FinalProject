@@ -111,8 +111,6 @@ public class StartMenu extends javax.swing.JFrame {
         Global Player = new Global(PlayerName);
         
         JOptionPane.showMessageDialog(null, "You have chosen the name "+ Global.getPlayerName());
-        //delete this
-        System.out.println(Global.getPlayerName());
         
         SelectClass selectClassScreen = new SelectClass();
         selectClassScreen.show();

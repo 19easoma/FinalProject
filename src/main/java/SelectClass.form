@@ -130,7 +130,7 @@
             <Property name="columns" type="int" value="1"/>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="4"/>
-            <Property name="text" type="java.lang.String" value="Level: 1&#xa;Vitality: 18&#xa;Power: 6&#xa;Defense: 6"/>
+            <Property name="text" type="java.lang.String" value="Level: 1&#xa;Vitality: 18&#xa;Power: 4&#xa;Defense: 6"/>
           </Properties>
         </Component>
       </SubComponents>

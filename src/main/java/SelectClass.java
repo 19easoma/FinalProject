@@ -74,7 +74,7 @@ public class SelectClass extends javax.swing.JFrame {
         jTextArea1.setColumns(1);
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(4);
-        jTextArea1.setText("Level: 1\nVitality: 18\nPower: 6\nDefense: 6");
+        jTextArea1.setText("Level: 1\nVitality: 18\nPower: 4\nDefense: 6");
         jScrollPane1.setViewportView(jTextArea1);
 
         jTextArea2.setColumns(1);
@@ -139,12 +139,9 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseKnightClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseKnightClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,18,18,4,6);
+        Player Player = new Player(1,0,0,18,18,4,6);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Knight class");
-        //delete these
-        System.out.println(Global.getPlayerName());
-        System.out.println(Player.getMaxVitality());
         
         MainMenu MainMenuScreen = new MainMenu();
         MainMenuScreen.show();
@@ -153,12 +150,9 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseSorcererClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseSorcererClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,9,9,12,2);
+        Player Player = new Player(1,0,0,9,9,12,2);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Sorcerer class");
-        //delete these
-        System.out.println(Global.getPlayerName());
-        System.out.println(Player.getMaxVitality());
         
         MainMenu MainMenuScreen = new MainMenu();
         MainMenuScreen.show();
@@ -167,12 +161,9 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseHunterClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseHunterClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,12,12,7,3);
+        Player Player = new Player(1,0,0,12,12,7,3);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Hunter class");
-        //delete these
-        System.out.println(Global.getPlayerName());
-        System.out.println(Player.getMaxVitality());
         
         MainMenu MainMenuScreen = new MainMenu();
         MainMenuScreen.show();

@@ -86,8 +86,8 @@ public class MainMenu extends javax.swing.JFrame {
 
         areaStatus1.setColumns(1);
         areaStatus1.setLineWrap(true);
-        areaStatus1.setRows(4);
-        areaStatus1.setText("Level: " + String.valueOf(Player.getLevel()) + "\n" + "Vitality: " + String.valueOf(Player.getMaxVitality()) + "\n" + "Power: " + String.valueOf(Player.getPower()) + "\n" + "Defense: " + String.valueOf(Player.getDefense())
+        areaStatus1.setRows(6);
+        areaStatus1.setText("Level: " + String.valueOf(Player.getLevel()) + "\n" + "Experience: " + String.valueOf(Player.getCurrentEXP()) + "\n" + "Gold: " + String.valueOf(Player.getCurrentGold()) + "\n" + "Vitality: " + String.valueOf(Player.getMaxVitality()) + "\n" + "Power: " + String.valueOf(Player.getPower()) + "\n" + "Defense: " + String.valueOf(Player.getDefense())
         );
         areaStatus1.setToolTipText("");
         jScrollPane1.setViewportView(areaStatus1);
@@ -120,11 +120,11 @@ public class MainMenu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblStatus)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnToJourney, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()

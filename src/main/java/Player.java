@@ -10,17 +10,37 @@
  */
 public class Player {
     private static int Level;
+    private static int CurrentEXP;
+    private static int CurrentGold;
     private static int MaxVitality;
     private static int CurrentVitality;
     private static int Power;
     private static int Defense;
 
-    public Player(int Level, int MaxVitality, int CurrentVitality, int Power, int Defense) {
+    public Player(int Level, int CurrentEXP, int CurrentGold, int MaxVitality, int CurrentVitality, int Power, int Defense) {
         Player.Level = Level;
+        Player.CurrentEXP = CurrentEXP;
+        Player.CurrentGold = CurrentGold;
         Player.MaxVitality = MaxVitality;
         Player.CurrentVitality = CurrentVitality;
         Player.Power = Power;
         Player.Defense = Defense;
+    }
+
+    public static int getCurrentEXP() {
+        return CurrentEXP;
+    }
+
+    public static void setCurrentEXP(int CurrentEXP) {
+        Player.CurrentEXP = CurrentEXP;
+    }
+
+    public static int getCurrentGold() {
+        return CurrentGold;
+    }
+
+    public static void setCurrentGold(int CurrentGold) {
+        Player.CurrentGold = CurrentGold;
     }
 
     public static int getLevel() {
