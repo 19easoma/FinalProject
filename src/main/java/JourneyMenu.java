@@ -18,6 +18,8 @@ public class JourneyMenu extends javax.swing.JFrame {
     Random bossRoll = new Random();
     
     int count = 0;
+    
+    int journeyCount = 0;
     /**
      * Creates new form FightMenu
      */
@@ -52,6 +54,9 @@ public class JourneyMenu extends javax.swing.JFrame {
         areaAttackMessage = new javax.swing.JTextArea();
         btnContinue = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
+        lblPotionsHeld = new javax.swing.JLabel();
+        lblMegaPotionsHeld = new javax.swing.JLabel();
+        lblMaxPotionsHeld = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -95,6 +100,11 @@ public class JourneyMenu extends javax.swing.JFrame {
         btnHeal.setBackground(new java.awt.Color(153, 255, 153));
         btnHeal.setText("Heal");
         btnHeal.setEnabled(false);
+        btnHeal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHealActionPerformed(evt);
+            }
+        });
 
         btnStartBattle.setText("Start");
         btnStartBattle.addActionListener(new java.awt.event.ActionListener() {
@@ -130,88 +140,106 @@ public class JourneyMenu extends javax.swing.JFrame {
             }
         });
 
+        lblPotionsHeld.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblPotionsHeld.setText("Held: " + Player.getPotionsHeld());
+
+        lblMegaPotionsHeld.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblMegaPotionsHeld.setText("Held: " + Player.getMegaPotionsHeld());
+
+        lblMaxPotionsHeld.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblMaxPotionsHeld.setText("Held: " + Player.getMaxPotionsHeld());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblPlayerName)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblEnemyName))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnHeal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(prgPlayerHealth, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblPlayerHealth, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rdMaxPotion, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rdMegaPotion, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rdPotion, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnContinue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPlayerHealth)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(prgPlayerHealth, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnStartBattle, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(rdMaxPotion)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblMaxPotionsHeld))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rdMegaPotion)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblMegaPotionsHeld))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rdPotion)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblPotionsHeld))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, Short.MAX_VALUE)
-                                        .addComponent(prgEnemyHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnCloseJourney)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblEnemyHealth)))))
-                .addContainerGap())
+                                        .addComponent(btnContinue, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnHeal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAttack, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                                .addComponent(btnStartBattle, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCloseJourney, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblEnemyHealth, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(prgEnemyHealth, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPlayerName)
-                    .addComponent(lblEnemyName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnStartBattle, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(prgPlayerHealth, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                    .addComponent(prgEnemyHealth, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(57, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPlayerName)
+                            .addComponent(lblEnemyName))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(prgPlayerHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(prgEnemyHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnStartBattle, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPlayerHealth)
                     .addComponent(lblEnemyHealth))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(btnAttack, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(rdPotion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rdMegaPotion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rdMaxPotion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnHeal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(4, 4, 4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGap(2, 2, 2)
+                .addComponent(btnAttack, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rdPotion)
+                            .addComponent(lblPotionsHeld))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rdMegaPotion)
+                            .addComponent(lblMegaPotionsHeld))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rdMaxPotion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblMaxPotionsHeld))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnHeal, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnReturn)
-                            .addComponent(btnContinue))
-                        .addContainerGap(38, Short.MAX_VALUE))
-                    .addComponent(btnCloseJourney, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(btnContinue)))
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(btnCloseJourney))
         );
 
         pack();
@@ -229,22 +257,22 @@ public class JourneyMenu extends javax.swing.JFrame {
         
         btnContinue.setEnabled(false);
         
-        int newMonster = monsterRoll.nextInt(5);
+        int newMonster = monsterRoll.nextInt(4);
         
         switch (newMonster) {
-            case 1:
+            case 0:
                 Monster monster1 = new Monster("goblin",10,10,1,1,1,1);
                 break;
-            case 2:
+            case 1:
                 Monster monster2 = new Monster("skeleton",10,10,1,1,1,1);
                 break;
-            case 3:
+            case 2:
                 Monster monster3 = new Monster("kobold",10,10,1,1,1,1);
                 break;
-            case 4:
+            case 3:
                 Monster monster4 = new Monster("slime",10,10,1,1,1,1);
                 break;
-            case 5:
+            case 4:
                 Monster monster5 = new Monster("spirit",10,10,1,1,1,1);
                 break;
         }
@@ -264,17 +292,16 @@ public class JourneyMenu extends javax.swing.JFrame {
         if (count == 5) {
             JOptionPane.showMessageDialog(null, "You hear a rumble in the distance. A large monster appears!");
             
-            //the only reason this is a random number is becaus i plan on adding more of these enemies
-            int newBoss = bossRoll.nextInt(3);
+            int newBoss = bossRoll.nextInt(2);
             
             switch (newBoss) {
-                case 1:
+                case 0:
                     Monster boss1 = new Monster("testBoss1",30,30,1,1,1,1);
                     break;
-                case 2:
+                case 1:
                     Monster boss2 = new Monster("testBoss2",30,30,1,1,1,1);
                     break;
-                case 3:
+                case 2:
                     Monster boss3 = new Monster("testBoss3",30,30,1,1,1,1);
                     break;
             }
@@ -284,21 +311,6 @@ public class JourneyMenu extends javax.swing.JFrame {
             
             prgEnemyHealth.setMaximum(Monster.getMaxVitality());
             prgEnemyHealth.setValue(Monster.getCurrentVitality());
-            
-            if (Monster.getCurrentVitality() == 0) {
-                areaAttackMessage.setText("You have defeated " + Monster.getMonsterName() + "! You recieve " + Monster.getDroppedEXP() + " experience points and " + Monster.getDroppedGold() + " gold! Continue to the next monster.");
-                Player.setCurrentEXP(Player.getCurrentEXP() + Monster.getDroppedEXP());
-                Player.setCurrentGold(Player.getCurrentGold() + Monster.getDroppedGold());
-            
-                btnAttack.setEnabled(false);
-                btnHeal.setEnabled(false);
-                btnReturn.setEnabled(true);
-            
-                Monster defeatedBoss = new Monster();
-                defeatedBoss = null;
-            }
-            
-            count = 0;
         }
         
         btnStartBattle.setEnabled(false); 
@@ -312,17 +324,19 @@ public class JourneyMenu extends javax.swing.JFrame {
         Player.setCurrentVitality(Player.getCurrentVitality() - Monster.getPower());
         prgPlayerHealth.setValue(Player.getCurrentVitality());
         
-        if (Monster.getCurrentVitality() <= 0) {
+        if (Monster.getCurrentVitality() < 0) {
             Monster.setCurrentVitality(0);
         } else {
             Monster.setCurrentVitality(Monster.getCurrentVitality());
         }
         
-        if (Player.getCurrentVitality() <= 0) {
+        if (Player.getCurrentVitality() < 0) {
                 Player.setCurrentVitality(0);
         } else {
             Player.setCurrentVitality(Player.getCurrentVitality());
         }
+        
+        btnHeal.setEnabled(true);
         
         areaAttackMessage.setText("You have dealt " + Player.getPower() + " damage to " + Monster.getMonsterName() + ". In return, " + Monster.getMonsterName() + " deals " + Monster.getPower() + " damage to you.");
         
@@ -330,7 +344,7 @@ public class JourneyMenu extends javax.swing.JFrame {
         lblEnemyHealth.setText("Health: " + Monster.getCurrentVitality() + " / " + Monster.getMaxVitality());
 
         if (Monster.getCurrentVitality() == 0) {
-            areaAttackMessage.setText("You have defeated " + Monster.getMonsterName() + "! You recieve " + Monster.getDroppedEXP() + " experience points and " + Monster.getDroppedGold() + " gold! Continue to the next monster.");
+            areaAttackMessage.setText("You have defeated " + Monster.getMonsterName() + "! You recieve " + Monster.getDroppedEXP() + " experience points and " + Monster.getDroppedGold() + " gold. Continue to the next monster.");
             Player.setCurrentEXP(Player.getCurrentEXP() + Monster.getDroppedEXP());
             Player.setCurrentGold(Player.getCurrentGold() + Monster.getDroppedGold());
             
@@ -341,7 +355,23 @@ public class JourneyMenu extends javax.swing.JFrame {
             Monster defeatedMonster = new Monster();
             defeatedMonster = null;
             
-            count = count + 1;
+            
+            
+            if (count == 5) {
+                btnAttack.setEnabled(false);
+                btnHeal.setEnabled(false);
+                btnReturn.setEnabled(true);
+                btnContinue.setEnabled(false);
+            
+                areaAttackMessage.setText("You have defeated " + Monster.getMonsterName() + "! You recieve " + Monster.getDroppedEXP() + " experience points and " + Monster.getDroppedGold() + " gold. It's time to rest a while...");
+                
+                Monster defeatedBoss = new Monster();
+                defeatedBoss = null;
+                
+                count = 0; 
+            } else {
+                count = count + 1;     
+            }    
         }
     }//GEN-LAST:event_btnAttackActionPerformed
 
@@ -352,10 +382,83 @@ public class JourneyMenu extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
+        journeyCount = journeyCount + 1;
+        
+        Player.setCurrentVitality(Player.getMaxVitality());
+        
         MainMenu MainMenuScreen = new MainMenu();
         MainMenuScreen.show();
         this.dispose();
     }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void btnHealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHealActionPerformed
+        // TODO add your handling code here:
+        if (rdPotion.isSelected()) {
+            if (Player.getPotionsHeld() > 0) {
+                Player.setCurrentVitality(Player.getCurrentVitality() + 5);
+                
+                Player.setPotionsHeld(Player.getPotionsHeld() - 1);
+                
+                if (Player.getCurrentVitality() > Player.getMaxVitality()) {
+                    Player.setCurrentVitality(Player.getMaxVitality());
+                }
+                
+                prgPlayerHealth.setValue(Player.getCurrentVitality());
+                lblPlayerHealth.setText("Health: " + Player.getCurrentVitality() + " / " + Player.getMaxVitality());
+                lblPotionsHeld.setText("Held: " + Player.getPotionsHeld());
+                
+                areaAttackMessage.setText("Your potion heals you for 5 health points.");
+                
+                btnHeal.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "You have no more potions left!");
+            }
+        }
+        
+        if (rdMegaPotion.isSelected()) {
+            if (Player.getMegaPotionsHeld() > 0) {
+                Player.setCurrentVitality(Player.getCurrentVitality() + 10);
+                
+                Player.setPotionsHeld(Player.getMegaPotionsHeld() - 1);
+                
+                if (Player.getCurrentVitality() > Player.getMaxVitality()) {
+                    Player.setCurrentVitality(Player.getMaxVitality());
+                }
+                
+                prgPlayerHealth.setValue(Player.getCurrentVitality());
+                lblPlayerHealth.setText("Health: " + Player.getCurrentVitality() + " / " + Player.getMaxVitality());
+                lblPotionsHeld.setText("Held: " + Player.getMegaPotionsHeld());
+                
+                areaAttackMessage.setText("Your mega potion heals you for 20 health points.");
+                
+                btnHeal.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "You have no more mega potions left!");
+            }
+        }
+        
+        if (rdMaxPotion.isSelected()) {
+            if (Player.getMaxPotionsHeld() > 0) {
+                Player.setCurrentVitality(Player.getMaxVitality());
+                
+                Player.setPotionsHeld(Player.getPotionsHeld() - 1);
+                
+                if (Player.getCurrentVitality() > Player.getMaxVitality()) {
+                    Player.setCurrentVitality(Player.getMaxVitality());
+                }
+                
+                prgPlayerHealth.setValue(Player.getCurrentVitality());
+                lblPlayerHealth.setText("Health: " + Player.getCurrentVitality() + " / " + Player.getMaxVitality());
+                lblPotionsHeld.setText("Held: " + Player.getMaxPotionsHeld());
+                
+                areaAttackMessage.setText("Your max potion fully heals you.");
+                
+                btnHeal.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "You have no more max potions left!");
+            }
+        }
+    }//GEN-LAST:event_btnHealActionPerformed
 
     /**
      * @param args the command line arguments
@@ -405,8 +508,11 @@ public class JourneyMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEnemyHealth;
     private javax.swing.JLabel lblEnemyName;
+    private javax.swing.JLabel lblMaxPotionsHeld;
+    private javax.swing.JLabel lblMegaPotionsHeld;
     private javax.swing.JLabel lblPlayerHealth;
     private javax.swing.JLabel lblPlayerName;
+    private javax.swing.JLabel lblPotionsHeld;
     private static javax.swing.JProgressBar prgEnemyHealth;
     private static javax.swing.JProgressBar prgPlayerHealth;
     private javax.swing.JRadioButton rdMaxPotion;

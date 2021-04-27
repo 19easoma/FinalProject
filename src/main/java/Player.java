@@ -16,8 +16,11 @@ public class Player {
     private static int CurrentVitality;
     private static int Power;
     private static int Defense;
+    private static int PotionsHeld;
+    private static int MegaPotionsHeld;
+    private static int MaxPotionsHeld;
 
-    public Player(int Level, int CurrentEXP, int CurrentGold, int MaxVitality, int CurrentVitality, int Power, int Defense) {
+    public Player(int Level, int CurrentEXP, int CurrentGold, int MaxVitality, int CurrentVitality, int Power, int Defense, int PotionsHeld, int MegaPotionsHeld, int MaxPotionsHeld) {
         Player.Level = Level;
         Player.CurrentEXP = CurrentEXP;
         Player.CurrentGold = CurrentGold;
@@ -25,6 +28,9 @@ public class Player {
         Player.CurrentVitality = CurrentVitality;
         Player.Power = Power;
         Player.Defense = Defense;
+        Player.PotionsHeld = PotionsHeld;
+        Player.MegaPotionsHeld = MegaPotionsHeld;
+        Player.MaxPotionsHeld = MaxPotionsHeld;
     }
 
     public static int getCurrentEXP() {
@@ -82,4 +88,29 @@ public class Player {
     public static void setDefense(int Defense) {
         Player.Defense = Defense;
     }
+
+    public static int getPotionsHeld() {
+        return PotionsHeld;
+    }
+
+    public static void setPotionsHeld(int PotionsHeld) {
+        Player.PotionsHeld = PotionsHeld;
+    }
+
+    public static int getMegaPotionsHeld() {
+        return MegaPotionsHeld;
+    }
+
+    public static void setMegaPotionsHeld(int MegaPotionsHeld) {
+        Player.MegaPotionsHeld = MegaPotionsHeld;
+    }
+
+    public static int getMaxPotionsHeld() {
+        return MaxPotionsHeld;
+    }
+
+    public static void setMaxPotionsHeld(int MaxPotionsHeld) {
+        Player.MaxPotionsHeld = MaxPotionsHeld;
+    }
+    
 }

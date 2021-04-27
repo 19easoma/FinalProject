@@ -139,7 +139,7 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseKnightClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseKnightClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,0,0,18,18,4,6);
+        Player Player = new Player(1,0,0,18,18,4,6,3,0,0);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Knight class");
         
@@ -150,7 +150,7 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseSorcererClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseSorcererClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,0,0,9,9,12,2);
+        Player Player = new Player(1,0,0,9,9,12,2,3,0,0);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Sorcerer class");
         
@@ -161,7 +161,7 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseHunterClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseHunterClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,0,0,12,12,7,3);
+        Player Player = new Player(1,0,0,12,12,7,3,3,0,0);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Hunter class");
         
