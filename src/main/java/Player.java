@@ -19,8 +19,9 @@ public class Player {
     private static int PotionsHeld;
     private static int MegaPotionsHeld;
     private static int MaxPotionsHeld;
+    private static int BossCount;
 
-    public Player(int Level, int CurrentEXP, int CurrentGold, int MaxVitality, int CurrentVitality, int Power, int Defense, int PotionsHeld, int MegaPotionsHeld, int MaxPotionsHeld) {
+    public Player(int Level, int CurrentEXP, int CurrentGold, int MaxVitality, int CurrentVitality, int Power, int Defense, int PotionsHeld, int MegaPotionsHeld, int MaxPotionsHeld, int BossCount) {
         Player.Level = Level;
         Player.CurrentEXP = CurrentEXP;
         Player.CurrentGold = CurrentGold;
@@ -31,8 +32,13 @@ public class Player {
         Player.PotionsHeld = PotionsHeld;
         Player.MegaPotionsHeld = MegaPotionsHeld;
         Player.MaxPotionsHeld = MaxPotionsHeld;
+        Player.BossCount = BossCount;
     }
-
+    
+    public Player() {
+        
+    }
+    
     public static int getCurrentEXP() {
         return CurrentEXP;
     }
@@ -111,6 +117,14 @@ public class Player {
 
     public static void setMaxPotionsHeld(int MaxPotionsHeld) {
         Player.MaxPotionsHeld = MaxPotionsHeld;
+    }
+
+    public static int getBossCount() {
+        return BossCount;
+    }
+
+    public static void setBossCount(int BossCount) {
+        Player.BossCount = BossCount;
     }
     
 }

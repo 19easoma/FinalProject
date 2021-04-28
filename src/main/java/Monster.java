@@ -29,8 +29,9 @@ public class Monster {
     }
 
     public Monster() {
+        
     }
-
+    
     public static String getMonsterName() {
         return MonsterName;
     }

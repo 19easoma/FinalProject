@@ -35,13 +35,13 @@
                   <Component id="lblMegaPotionPrice" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="lblMaxPotionPrice" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnBuyMegaPotion" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnBuyPotion" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnBuyMaxPotion" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                  <Component id="btnBuyMaxPotion" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblPotionDescription" min="-2" max="-2" attributes="0"/>
                   <Component id="lblMegaPotionDescription" min="-2" max="-2" attributes="0"/>

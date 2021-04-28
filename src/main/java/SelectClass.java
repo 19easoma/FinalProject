@@ -34,11 +34,11 @@ public class SelectClass extends javax.swing.JFrame {
         btnChooseHunterClass = new javax.swing.JButton();
         btnChooseSorcererClass = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        areaKnightStats = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        areaHunterStats = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        areaSorcererStats = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,25 +71,25 @@ public class SelectClass extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(1);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(4);
-        jTextArea1.setText("Level: 1\nVitality: 18\nPower: 4\nDefense: 6");
-        jScrollPane1.setViewportView(jTextArea1);
+        areaKnightStats.setColumns(1);
+        areaKnightStats.setLineWrap(true);
+        areaKnightStats.setRows(4);
+        areaKnightStats.setText("Level: 1\nVitality: 18\nPower: 4\nDefense: 6");
+        jScrollPane1.setViewportView(areaKnightStats);
 
-        jTextArea2.setColumns(1);
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(4);
-        jTextArea2.setText("Level: 1\nVitality: 12\nPower: 7\nDefense: 3");
-        jTextArea2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextArea2.setMaximumSize(new java.awt.Dimension(124, 130));
-        jScrollPane2.setViewportView(jTextArea2);
+        areaHunterStats.setColumns(1);
+        areaHunterStats.setLineWrap(true);
+        areaHunterStats.setRows(4);
+        areaHunterStats.setText("Level: 1\nVitality: 12\nPower: 7\nDefense: 3");
+        areaHunterStats.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        areaHunterStats.setMaximumSize(new java.awt.Dimension(124, 130));
+        jScrollPane2.setViewportView(areaHunterStats);
 
-        jTextArea3.setColumns(1);
-        jTextArea3.setLineWrap(true);
-        jTextArea3.setRows(4);
-        jTextArea3.setText("Level: 1\nVitality: 9\nPower: 12\nDefense: 2");
-        jScrollPane3.setViewportView(jTextArea3);
+        areaSorcererStats.setColumns(1);
+        areaSorcererStats.setLineWrap(true);
+        areaSorcererStats.setRows(4);
+        areaSorcererStats.setText("Level: 1\nVitality: 9\nPower: 12\nDefense: 2");
+        jScrollPane3.setViewportView(areaSorcererStats);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,7 +139,7 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseKnightClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseKnightClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,0,0,18,18,4,6,3,0,0);
+        Player Player = new Player(1,0,0,18,18,4,6,3,0,0,0);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Knight class");
         
@@ -150,7 +150,7 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseSorcererClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseSorcererClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,0,0,9,9,12,2,3,0,0);
+        Player Player = new Player(1,0,0,9,9,12,2,3,0,0,0);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Sorcerer class");
         
@@ -161,7 +161,7 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseHunterClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseHunterClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,0,0,12,12,7,3,3,0,0);
+        Player Player = new Player(1,0,0,12,12,7,3,3,0,0,0);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Hunter class");
         
@@ -206,15 +206,15 @@ public class SelectClass extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea areaHunterStats;
+    private javax.swing.JTextArea areaKnightStats;
+    private javax.swing.JTextArea areaSorcererStats;
     private javax.swing.JButton btnChooseHunterClass;
     private javax.swing.JButton btnChooseKnightClass;
     private javax.swing.JButton btnChooseSorcererClass;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JLabel lblChooseClass;
     // End of variables declaration//GEN-END:variables
 }
