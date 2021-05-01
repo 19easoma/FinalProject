@@ -1,4 +1,7 @@
 
+import javax.swing.JOptionPane;
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,6 +13,8 @@
  * @author antho
  */
 public class MainMenu extends javax.swing.JFrame {
+    
+    
     
     /**
      * Creates new form MainMenu
@@ -31,12 +36,14 @@ public class MainMenu extends javax.swing.JFrame {
         btnToShop = new javax.swing.JButton();
         btnCloseMain = new javax.swing.JButton();
         btnToEquipment = new javax.swing.JButton();
-        btnToJourney = new javax.swing.JButton();
+        btnToDungeon = new javax.swing.JButton();
         btnToInventory = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         areaStatus = new javax.swing.JTextArea();
         lblStatus = new javax.swing.JLabel();
         btnFinalBoss = new javax.swing.JButton();
+        lblStage = new javax.swing.JLabel();
+        lblPrestige = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -67,12 +74,12 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        btnToJourney.setBackground(new java.awt.Color(255, 153, 153));
-        btnToJourney.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnToJourney.setText("Journey");
-        btnToJourney.addActionListener(new java.awt.event.ActionListener() {
+        btnToDungeon.setBackground(new java.awt.Color(255, 153, 153));
+        btnToDungeon.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnToDungeon.setText("Enter Dungeon");
+        btnToDungeon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnToJourneyActionPerformed(evt);
+                btnToDungeonActionPerformed(evt);
             }
         });
 
@@ -89,11 +96,12 @@ public class MainMenu extends javax.swing.JFrame {
         areaStatus.setColumns(1);
         areaStatus.setLineWrap(true);
         areaStatus.setRows(6);
-        areaStatus.setText("Level: " + String.valueOf(Player.getLevel()) + "\n" + "Experience: " + String.valueOf(Player.getCurrentEXP()) + "\n" + "Gold: " + String.valueOf(Player.getCurrentGold()) + "\n" + "Vitality: " + String.valueOf(Player.getMaxVitality()) + "\n" + "Power: " + String.valueOf(Player.getPower()) + "\n" + "Defense: " + String.valueOf(Player.getDefense())
+        areaStatus.setText("Level: " + String.valueOf(Player.getLevel()) + "\n" + "Experience: " + String.valueOf(Player.getCurrentEXP()) + "/100" + "\n" + "Gold: " + String.valueOf(Player.getCurrentGold()) + "\n" + "Vitality: " + String.valueOf(Player.getMaxVitality()) + "\n" + "Power: " + String.valueOf(Player.getPower()) + "\n" + "Defense: " + String.valueOf(Player.getDefense())
         );
         areaStatus.setToolTipText("");
         jScrollPane1.setViewportView(areaStatus);
 
+        lblStatus.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblStatus.setText("Status for " + Global.getPlayerName());
 
         btnFinalBoss.setText("Final Challenge");
@@ -103,6 +111,10 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        lblStage.setText("Stage: " + (Player.getBossCount() + 1));
+
+        lblPrestige.setText("Prestige: " + Player.getPrestige());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,37 +122,50 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnCloseMain))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnToJourney, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnToInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnToShop, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnToEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnFinalBoss)
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblStatus)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnToDungeon, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnToInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnToShop, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnToEquipment, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblStage)
+                                        .addComponent(btnFinalBoss))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblPrestige)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblStatus, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(lblStatus)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnFinalBoss, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPrestige)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblStage))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFinalBoss, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnToJourney, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnToDungeon, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnToShop, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -174,12 +199,12 @@ public class MainMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnToEquipmentActionPerformed
 
-    private void btnToJourneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToJourneyActionPerformed
+    private void btnToDungeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToDungeonActionPerformed
         // TODO add your handling code here:
-        JourneyMenu JourneyMenuScreen = new JourneyMenu();
-        JourneyMenuScreen.show();
+        DungeonMenu DungeonMenuScreen = new DungeonMenu();
+        DungeonMenuScreen.show();
         this.dispose();
-    }//GEN-LAST:event_btnToJourneyActionPerformed
+    }//GEN-LAST:event_btnToDungeonActionPerformed
 
     private void btnToShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToShopActionPerformed
         // TODO add your handling code here:
@@ -190,16 +215,15 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnFinalBossActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalBossActionPerformed
         // TODO add your handling code here:
-        FinalJourneyMenu FinalJourneyMenuScreen = new FinalJourneyMenu();
-        FinalJourneyMenuScreen.show();
-        this.dispose();
+        if (Player.getBossCount() >= 10) {
+            FinalDungeonMenu FinalDungeonMenuScreen = new FinalDungeonMenu();
+            FinalDungeonMenuScreen.show();
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "An unseeable force prevents you from entering the final dungeon. You may need to train more before you accept this challenge.");
+        }
     }//GEN-LAST:event_btnFinalBossActionPerformed
 
-    private void finalBossCheck() {
-        if (Player.getBossCount() >= 10) {
-            btnFinalBoss.setEnabled(true);
-        }
-    }
     /**
      * @param args the command line arguments
      */
@@ -243,13 +267,15 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaStatus;
     private javax.swing.JButton btnCloseMain;
-    private javax.swing.JButton btnFinalBoss;
+    private static javax.swing.JButton btnFinalBoss;
+    private javax.swing.JButton btnToDungeon;
     private javax.swing.JButton btnToEquipment;
     private javax.swing.JButton btnToInventory;
-    private javax.swing.JButton btnToJourney;
     private javax.swing.JButton btnToShop;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblPrestige;
+    private javax.swing.JLabel lblStage;
     private javax.swing.JLabel lblStatus;
     // End of variables declaration//GEN-END:variables
 }

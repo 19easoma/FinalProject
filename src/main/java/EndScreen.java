@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -32,6 +35,7 @@ public class EndScreen extends javax.swing.JFrame {
         lblGameOver = new javax.swing.JLabel();
         lblLegacy = new javax.swing.JLabel();
         btnRestartGame = new javax.swing.JButton();
+        btnPrestige = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,7 +49,7 @@ public class EndScreen extends javax.swing.JFrame {
         areaCharacterSummary.setColumns(20);
         areaCharacterSummary.setLineWrap(true);
         areaCharacterSummary.setRows(6);
-        areaCharacterSummary.setText("Level: " + String.valueOf(Player.getLevel()) + "\n" + "Experience: " + String.valueOf(Player.getCurrentEXP()) + "\n" + "Gold: " + String.valueOf(Player.getCurrentGold()) + "\n" + "Vitality: " + String.valueOf(Player.getMaxVitality()) + "\n" + "Power: " + String.valueOf(Player.getPower()) + "\n" + "Defense: " + String.valueOf(Player.getDefense()));
+        areaCharacterSummary.setText("Level: " + String.valueOf(Player.getLevel()) + "\n" + "Experience: " + String.valueOf(Player.getCurrentEXP()) + "\n" + "Gold: " + String.valueOf(Player.getCurrentGold()) + "\n" + "Vitality: " + String.valueOf(Player.getMaxVitality()) + "\n" + "Power: " + String.valueOf(Player.getPower()) + "\n" + "Defense: " + String.valueOf(Player.getDefense()) + "\n" + "Stage: " + String.valueOf(Player.getBossCount()));
         areaCharacterSummary.setToolTipText("");
         areaCharacterSummary.setWrapStyleWord(true);
         jScrollPane1.setViewportView(areaCharacterSummary);
@@ -65,38 +69,49 @@ public class EndScreen extends javax.swing.JFrame {
             }
         });
 
+        btnPrestige.setText("Prestige Character");
+        btnPrestige.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrestigeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(btnRestartGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCloseGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnRestartGame, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnCloseGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnPrestige, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                    .addComponent(lblLegacy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLegacy, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(lblGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblLegacy)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPrestige)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRestartGame)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCloseGameOver)
-                .addContainerGap())
+                .addComponent(btnCloseGameOver))
         );
 
         pack();
@@ -117,6 +132,23 @@ public class EndScreen extends javax.swing.JFrame {
         StartMenuScreen.show();
         this.dispose();
     }//GEN-LAST:event_btnRestartGameActionPerformed
+
+    private void btnPrestigeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestigeActionPerformed
+        // TODO add your handling code here:
+        Player.setPrestige(Player.getPrestige() + 1);
+       
+        int prestigeConfirm = JOptionPane.showConfirmDialog(null,"Are you sure you wish to prestige? Choosing this will allow you to continue fighting monsters, and will increase the difficulty of the final boss.", "Confirmation",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        
+        if(prestigeConfirm == JOptionPane.YES_OPTION){
+            MainMenu MainMenuScreen = new MainMenu();
+            MainMenuScreen.show();
+            this.dispose();
+        } else if (prestigeConfirm == JOptionPane.NO_OPTION){
+               EndScreen endScreen = new EndScreen();
+               endScreen.show();
+               this.dispose();
+        }
+    }//GEN-LAST:event_btnPrestigeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,6 +188,7 @@ public class EndScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaCharacterSummary;
     private javax.swing.JButton btnCloseGameOver;
+    private javax.swing.JButton btnPrestige;
     private javax.swing.JButton btnRestartGame;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblGameOver;

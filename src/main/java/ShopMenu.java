@@ -40,6 +40,7 @@ public class ShopMenu extends javax.swing.JFrame {
         lblMegaPotionPrice = new javax.swing.JLabel();
         lblMaxPotionPrice = new javax.swing.JLabel();
         lblShopkeeperName = new javax.swing.JLabel();
+        lblCurrentGold = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,9 +86,9 @@ public class ShopMenu extends javax.swing.JFrame {
             }
         });
 
-        lblPotionDescription.setText("This will restore 5 health points in battle!");
+        lblPotionDescription.setText("This will restore 20 health points in battle!");
 
-        lblMegaPotionDescription.setText("This will restore 20 health points in battle!");
+        lblMegaPotionDescription.setText("This will restore 50 health points in battle!");
 
         lblMaxPotionDescription.setText("This will restore all of your health points in battle!");
 
@@ -95,12 +96,15 @@ public class ShopMenu extends javax.swing.JFrame {
         lblPotionPrice.setText("10 Gold");
 
         lblMegaPotionPrice.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblMegaPotionPrice.setText("50 Gold");
+        lblMegaPotionPrice.setText("30 Gold");
 
         lblMaxPotionPrice.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblMaxPotionPrice.setText("200 Gold");
 
         lblShopkeeperName.setText("Shopkeeper");
+
+        lblCurrentGold.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblCurrentGold.setText("Gold: " + Player.getCurrentGold());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,37 +114,42 @@ public class ShopMenu extends javax.swing.JFrame {
                 .addComponent(btnMainfromShop)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 352, Short.MAX_VALUE)
                 .addComponent(btnCloseShop))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPotionPrice, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblMegaPotionPrice, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblMaxPotionPrice, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBuyMegaPotion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBuyPotion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBuyMaxPotion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPotionDescription)
-                    .addComponent(lblMegaPotionDescription)
-                    .addComponent(lblMaxPotionDescription))
-                .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPotionPrice, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblMegaPotionPrice, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblMaxPotionPrice, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnBuyMegaPotion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBuyPotion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBuyMaxPotion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPotionDescription)
+                            .addComponent(lblMegaPotionDescription)
+                            .addComponent(lblMaxPotionDescription))
+                        .addGap(27, 27, 27))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblShopkeeperName)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblShopkeeperName)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCurrentGold)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(21, Short.MAX_VALUE)
-                .addComponent(lblShopkeeperName)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblShopkeeperName)
+                    .addComponent(lblCurrentGold))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -190,18 +199,23 @@ public class ShopMenu extends javax.swing.JFrame {
         } else {
             areaShopDialogue.setText("I don't quite think you can afford that, buddy");
         }
+        
+        lblCurrentGold.setText("Gold: " + Player.getCurrentGold());
     }//GEN-LAST:event_btnBuyPotionActionPerformed
 
     private void btnBuyMegaPotionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyMegaPotionActionPerformed
         // TODO add your handling code here:
-        if (Player.getCurrentGold() > 50) {
+        if (Player.getCurrentGold() > 30) {
             Player.setMegaPotionsHeld(Player.getMegaPotionsHeld() + 1);
-            Player.setCurrentGold(Player.getCurrentGold() - 50);
+            Player.setCurrentGold(Player.getCurrentGold() - 30);
             
             areaShopDialogue.setText("Thank you for your business!");
         } else {
             areaShopDialogue.setText("I don't quite think you can afford that, buddy");
         }
+        
+                lblCurrentGold.setText("Gold: " + Player.getCurrentGold());
+
     }//GEN-LAST:event_btnBuyMegaPotionActionPerformed
 
     private void btnBuyMaxPotionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyMaxPotionActionPerformed
@@ -214,6 +228,8 @@ public class ShopMenu extends javax.swing.JFrame {
         } else {
             areaShopDialogue.setText("I don't quite think you can afford that, buddy");
         }
+        
+        lblCurrentGold.setText("Gold: " + Player.getCurrentGold());
     }//GEN-LAST:event_btnBuyMaxPotionActionPerformed
 
     /**
@@ -259,6 +275,7 @@ public class ShopMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnCloseShop;
     private javax.swing.JButton btnMainfromShop;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCurrentGold;
     private javax.swing.JLabel lblMaxPotionDescription;
     private javax.swing.JLabel lblMaxPotionPrice;
     private javax.swing.JLabel lblMegaPotionDescription;

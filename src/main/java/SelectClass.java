@@ -74,13 +74,13 @@ public class SelectClass extends javax.swing.JFrame {
         areaKnightStats.setColumns(1);
         areaKnightStats.setLineWrap(true);
         areaKnightStats.setRows(4);
-        areaKnightStats.setText("Level: 1\nVitality: 18\nPower: 4\nDefense: 6");
+        areaKnightStats.setText("Level: 1\nVitality: 100\nPower: 14\nDefense: 10");
         jScrollPane1.setViewportView(areaKnightStats);
 
         areaHunterStats.setColumns(1);
         areaHunterStats.setLineWrap(true);
         areaHunterStats.setRows(4);
-        areaHunterStats.setText("Level: 1\nVitality: 12\nPower: 7\nDefense: 3");
+        areaHunterStats.setText("Level: 1\nVitality: 86\nPower: 18\nDefense: 6");
         areaHunterStats.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         areaHunterStats.setMaximumSize(new java.awt.Dimension(124, 130));
         jScrollPane2.setViewportView(areaHunterStats);
@@ -88,7 +88,7 @@ public class SelectClass extends javax.swing.JFrame {
         areaSorcererStats.setColumns(1);
         areaSorcererStats.setLineWrap(true);
         areaSorcererStats.setRows(4);
-        areaSorcererStats.setText("Level: 1\nVitality: 9\nPower: 12\nDefense: 2");
+        areaSorcererStats.setText("Level: 1\nVitality: 72\nPower: 26\nDefense: 4");
         jScrollPane3.setViewportView(areaSorcererStats);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,7 +139,7 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseKnightClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseKnightClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,0,0,18,18,4,6,3,0,0,0);
+        Player Player = new Player(1,0,0,100,100,14,10,5,0,0,0,0);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Knight class");
         
@@ -150,7 +150,7 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseSorcererClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseSorcererClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,0,0,9,9,12,2,3,0,0,0);
+        Player Player = new Player(1,0,0,72,72,26,4,5,0,0,0,0);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Sorcerer class");
         
@@ -161,7 +161,7 @@ public class SelectClass extends javax.swing.JFrame {
 
     private void btnChooseHunterClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseHunterClassActionPerformed
         // TODO add your handling code here:
-        Player Player = new Player(1,0,0,12,12,7,3,3,0,0,0);
+        Player Player = new Player(1,0,0,86,86,18,6,5,0,0,0,0);
                 
         JOptionPane.showMessageDialog(null, "You have chosen the Hunter class");
         

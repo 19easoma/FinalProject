@@ -4,6 +4,11 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="grpPotionSelect">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="DungeonMenu_buttonGroup2"/>
+      </AuxValues>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -71,7 +76,7 @@
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnCloseJourney" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCloseDungeon" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lblEnemyHealth" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="prgEnemyHealth" alignment="1" max="32767" attributes="0"/>
                           <Component id="jScrollPane1" alignment="1" pref="202" max="32767" attributes="0"/>
@@ -139,18 +144,18 @@
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="17" max="32767" attributes="0"/>
-              <Component id="btnCloseJourney" min="-2" max="-2" attributes="0"/>
+              <Component id="btnCloseDungeon" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnCloseJourney">
+    <Component class="javax.swing.JButton" name="btnCloseDungeon">
       <Properties>
         <Property name="text" type="java.lang.String" value="Close"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCloseJourneyActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCloseDungeonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JProgressBar" name="prgPlayerHealth">
@@ -217,16 +222,25 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="rdPotion">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="grpPotionSelect"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Potion"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rdMegaPotion">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="grpPotionSelect"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Mega Potion"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rdMaxPotion">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="grpPotionSelect"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Max Potion"/>
       </Properties>
     </Component>

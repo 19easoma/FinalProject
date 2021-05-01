@@ -85,8 +85,8 @@ public class GameOverScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnRestartGame)
-                        .addGap(15, 15, 15)
-                        .addComponent(btnCloseGameOver, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCloseGameOver, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
                     .addComponent(jScrollPane1)
                     .addComponent(lblLegacy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnContinueGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -131,8 +131,8 @@ public class GameOverScreen extends javax.swing.JFrame {
 
     private void btnContinueGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueGameActionPerformed
         // TODO add your handling code here:
-        Player.setCurrentEXP(0);
-        Player.setCurrentGold(Player.getCurrentGold() - 100);
+        Player.setCurrentEXP(Player.getCurrentEXP() / 2);
+        Player.setCurrentGold(Player.getCurrentGold() - 50);
         Player.setBossCount(Player.getBossCount() - 1);
         
         JOptionPane.showMessageDialog(null, "You have lost your current experience and dropped some of your gold, but you awake refreshed and ready to venture on!");

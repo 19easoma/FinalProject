@@ -20,8 +20,9 @@ public class Player {
     private static int MegaPotionsHeld;
     private static int MaxPotionsHeld;
     private static int BossCount;
+    private static int Prestige;
 
-    public Player(int Level, int CurrentEXP, int CurrentGold, int MaxVitality, int CurrentVitality, int Power, int Defense, int PotionsHeld, int MegaPotionsHeld, int MaxPotionsHeld, int BossCount) {
+    public Player(int Level, int CurrentEXP, int CurrentGold, int MaxVitality, int CurrentVitality, int Power, int Defense, int PotionsHeld, int MegaPotionsHeld, int MaxPotionsHeld, int BossCount, int Prestige) {
         Player.Level = Level;
         Player.CurrentEXP = CurrentEXP;
         Player.CurrentGold = CurrentGold;
@@ -33,6 +34,7 @@ public class Player {
         Player.MegaPotionsHeld = MegaPotionsHeld;
         Player.MaxPotionsHeld = MaxPotionsHeld;
         Player.BossCount = BossCount;
+        Player.Prestige = Prestige;
     }
     
     public Player() {
@@ -125,6 +127,14 @@ public class Player {
 
     public static void setBossCount(int BossCount) {
         Player.BossCount = BossCount;
+    }
+
+    public static int getPrestige() {
+        return Prestige;
+    }
+
+    public static void setPrestige(int Prestige) {
+        Player.Prestige = Prestige;
     }
     
 }
