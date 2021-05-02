@@ -219,7 +219,7 @@ public class ShopMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuyMegaPotionActionPerformed
 
     private void btnBuyMaxPotionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyMaxPotionActionPerformed
-        // used to buy max 
+        // used to buy max potions
         if (Player.getCurrentGold() >= 200) {
             Player.setMaxPotionsHeld(Player.getMaxPotionsHeld() + 1);
             Player.setCurrentGold(Player.getCurrentGold() - 200);

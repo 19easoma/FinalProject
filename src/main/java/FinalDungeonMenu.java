@@ -252,7 +252,7 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
 
                 prgPlayerHealth.setValue(Player.getCurrentVitality());
                 lblPlayerHealth.setText("Health: " + Player.getCurrentVitality() + " / " + Player.getMaxVitality());
-                lblPotionsHeld.setText("Held: " + Player.getMegaPotionsHeld());
+                lblMegaPotionsHeld.setText("Held: " + Player.getMegaPotionsHeld());
 
                 areaAttackMessage.setText("Your mega potion heals you for 50 health points.");
 
