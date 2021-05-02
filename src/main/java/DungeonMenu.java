@@ -501,8 +501,6 @@ public class DungeonMenu extends javax.swing.JFrame {
         // completes a stage and brings player back to main menu
         Player.setBossCount(Player.getBossCount() + 1);
         
-        System.out.println(Player.getBossCount());
-        
         Player.setCurrentVitality(Player.getMaxVitality());
         
         MainMenu MainMenuScreen = new MainMenu();
