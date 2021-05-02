@@ -261,7 +261,7 @@ public class DungeonMenu extends javax.swing.JFrame {
         areaAttackMessage.setText("");
         btnContinue.setEnabled(false);
         
-        int newMonster = monsterRoll.nextInt(24);
+        int newMonster = monsterRoll.nextInt(25);
         
         // randomly generates new monster
         switch (newMonster) {
@@ -338,7 +338,7 @@ public class DungeonMenu extends javax.swing.JFrame {
                 Monster monsterHarpy = new Monster("Harpy",38 + Player.getBossCount() * 8,38 + Player.getBossCount() * 8,26,20,14 + Player.getBossCount() * 2,4 + Player.getBossCount());
                 break;
             case 24:
-                Monster monsterPhilosophyMajor = new Monster("Philosophy Major",5 + Player.getBossCount() * 8,5 + Player.getBossCount() * 8,50,50,10 + Player.getBossCount() * 2,1000 + Player.getBossCount());
+                Monster monsterPhilosophyMajor = new Monster("Philosophy Major",5 + Player.getBossCount() * 2,5 + Player.getBossCount() * 8,50,50,10 + Player.getBossCount() * 2,1000 + Player.getBossCount());
                 break; 
         }
         
@@ -358,7 +358,7 @@ public class DungeonMenu extends javax.swing.JFrame {
         if (count == 5) {
             JOptionPane.showMessageDialog(null, "You hear a rumble in the distance. A large monster appears!");
             
-            int newBoss = bossRoll.nextInt(4);
+            int newBoss = bossRoll.nextInt(5);
             
             // randomly generates new boss
             switch (newBoss) {
@@ -375,7 +375,7 @@ public class DungeonMenu extends javax.swing.JFrame {
                     Monster bossIronGolem = new Monster("Iron Golem",50 + Player.getBossCount() * 8,50 + Player.getBossCount() * 8,100,100,10 + Player.getBossCount() * 2,20 + Player.getBossCount());
                     break;
                 case 4:
-                    Monster bossGiantEnemySpider = new Monster("Giant Enemy Spider",160 + Player.getBossCount() * 8,160 + Player.getBossCount() * 8,100,100,30 + Player.getBossCount() * 2,4 + Player.getBossCount());
+                    Monster bossGiantEnemySpider = new Monster("Giant Enemy Spider",140 + Player.getBossCount() * 8,140 + Player.getBossCount() * 8,100,100,30 + Player.getBossCount() * 2,4 + Player.getBossCount());
                     break;
             }
             

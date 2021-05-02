@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="grpPotionSelect">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -133,6 +137,9 @@
   <SubComponents>
     <Component class="javax.swing.JRadioButton" name="rdPotion">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="grpPotionSelect"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Potion"/>
       </Properties>
     </Component>
@@ -146,6 +153,9 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="rdMegaPotion">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="grpPotionSelect"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Mega Potion"/>
       </Properties>
     </Component>
@@ -159,6 +169,9 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="rdMaxPotion">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="grpPotionSelect"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Max Potion"/>
       </Properties>
     </Component>

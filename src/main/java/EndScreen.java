@@ -135,11 +135,11 @@ public class EndScreen extends javax.swing.JFrame {
 
     private void btnPrestigeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestigeActionPerformed
         // allows player to keep fighting monsters for an even greater challenge
-        Player.setPrestige(Player.getPrestige() + 1);
-       
         int prestigeConfirm = JOptionPane.showConfirmDialog(null,"Are you sure you wish to prestige? Choosing this will allow you to continue fighting monsters, and will increase the difficulty of the final boss.", "Confirmation",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
         
         if(prestigeConfirm == JOptionPane.YES_OPTION){
+            Player.setPrestige(Player.getPrestige() + 1);
+            
             MainMenu MainMenuScreen = new MainMenu();
             MainMenuScreen.show();
             this.dispose();

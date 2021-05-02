@@ -33,6 +33,7 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grpPotionSelect = new javax.swing.ButtonGroup();
         rdPotion = new javax.swing.JRadioButton();
         lblPotionsHeld = new javax.swing.JLabel();
         rdMegaPotion = new javax.swing.JRadioButton();
@@ -54,16 +55,19 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        grpPotionSelect.add(rdPotion);
         rdPotion.setText("Potion");
 
         lblPotionsHeld.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblPotionsHeld.setText("Held: " + Player.getPotionsHeld());
 
+        grpPotionSelect.add(rdMegaPotion);
         rdMegaPotion.setText("Mega Potion");
 
         lblMegaPotionsHeld.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblMegaPotionsHeld.setText("Held: " + Player.getMegaPotionsHeld());
 
+        grpPotionSelect.add(rdMaxPotion);
         rdMaxPotion.setText("Max Potion");
 
         lblMaxPotionsHeld.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -220,7 +224,7 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (rdPotion.isSelected()) {
             if (Player.getPotionsHeld() > 0) {
-                Player.setCurrentVitality(Player.getCurrentVitality() + 5);
+                Player.setCurrentVitality(Player.getCurrentVitality() + 20);
 
                 Player.setPotionsHeld(Player.getPotionsHeld() - 1);
 
@@ -242,7 +246,7 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
 
         if (rdMegaPotion.isSelected()) {
             if (Player.getMegaPotionsHeld() > 0) {
-                Player.setCurrentVitality(Player.getCurrentVitality() + 10);
+                Player.setCurrentVitality(Player.getCurrentVitality() + 50);
 
                 Player.setMegaPotionsHeld(Player.getMegaPotionsHeld() - 1);
 
@@ -289,7 +293,7 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
         // generates final boss
         areaAttackMessage.setText("");
 
-        Monster bossGusTheGorilla = new Monster("Gus the Destroyer",2500 + Player.getPrestige() * 2500,2500 + Player.getPrestige() * 2500,100,100,50 + Player.getPrestige() * 50,20 + Player.getPrestige() * 8);
+        Monster bossGusTheGorilla = new Monster("Gus the Destroyer",2000 + Player.getPrestige() * 2000,2000 + Player.getPrestige() * 2000,100,100,50 + Player.getPrestige() * 50,20 + Player.getPrestige() * 8);
 
         lblEnemyName.setText(Monster.getMonsterName());
         lblEnemyHealth.setText("Health: " + Monster.getCurrentVitality() + " / " + Monster.getMaxVitality());
@@ -438,6 +442,7 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnCloseJourney;
     private javax.swing.JButton btnHeal;
     private javax.swing.JButton btnStartBattle;
+    private javax.swing.ButtonGroup grpPotionSelect;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEnemyHealth;
     private javax.swing.JLabel lblEnemyName;
