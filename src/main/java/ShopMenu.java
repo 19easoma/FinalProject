@@ -190,8 +190,8 @@ public class ShopMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMainfromShopActionPerformed
 
     private void btnBuyPotionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyPotionActionPerformed
-        // TODO add your handling code here:
-        if (Player.getCurrentGold() > 10) {
+        // used to buy potions
+        if (Player.getCurrentGold() >= 10) {
             Player.setPotionsHeld(Player.getPotionsHeld() + 1);
             Player.setCurrentGold(Player.getCurrentGold() - 10);
             
@@ -204,8 +204,8 @@ public class ShopMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuyPotionActionPerformed
 
     private void btnBuyMegaPotionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyMegaPotionActionPerformed
-        // TODO add your handling code here:
-        if (Player.getCurrentGold() > 30) {
+        // used to buy mega potions
+        if (Player.getCurrentGold() >= 30) {
             Player.setMegaPotionsHeld(Player.getMegaPotionsHeld() + 1);
             Player.setCurrentGold(Player.getCurrentGold() - 30);
             
@@ -219,8 +219,8 @@ public class ShopMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuyMegaPotionActionPerformed
 
     private void btnBuyMaxPotionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyMaxPotionActionPerformed
-        // TODO add your handling code here:
-        if (Player.getCurrentGold() > 200) {
+        // used to buy max 
+        if (Player.getCurrentGold() >= 200) {
             Player.setMaxPotionsHeld(Player.getMaxPotionsHeld() + 1);
             Player.setCurrentGold(Player.getCurrentGold() - 200);
             

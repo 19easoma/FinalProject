@@ -120,7 +120,7 @@ public class GameOverScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseGameOverActionPerformed
 
     private void btnRestartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestartGameActionPerformed
-        // TODO add your handling code here:
+        // restarts the game entirely
         Player defaultCharacter = new Player();
         defaultCharacter = null;
         
@@ -130,7 +130,7 @@ public class GameOverScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRestartGameActionPerformed
 
     private void btnContinueGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueGameActionPerformed
-        // TODO add your handling code here:
+        // penalty of game over
         Player.setCurrentEXP(Player.getCurrentEXP() / 2);
         Player.setCurrentGold(Player.getCurrentGold() - 50);
         Player.setBossCount(Player.getBossCount() - 1);

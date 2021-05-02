@@ -214,7 +214,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnToShopActionPerformed
 
     private void btnFinalBossActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalBossActionPerformed
-        // TODO add your handling code here:
+        // allows the final boss to only be available after 10 bosses
         if (Player.getBossCount() >= 10) {
             FinalDungeonMenu FinalDungeonMenuScreen = new FinalDungeonMenu();
             FinalDungeonMenuScreen.show();

@@ -232,7 +232,7 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
                 lblPlayerHealth.setText("Health: " + Player.getCurrentVitality() + " / " + Player.getMaxVitality());
                 lblPotionsHeld.setText("Held: " + Player.getPotionsHeld());
 
-                areaAttackMessage.setText("Your potion heals you for 5 health points.");
+                areaAttackMessage.setText("Your potion heals you for 20 health points.");
 
                 btnHeal.setEnabled(false);
             } else {
@@ -244,7 +244,7 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
             if (Player.getMegaPotionsHeld() > 0) {
                 Player.setCurrentVitality(Player.getCurrentVitality() + 10);
 
-                Player.setPotionsHeld(Player.getMegaPotionsHeld() - 1);
+                Player.setMegaPotionsHeld(Player.getMegaPotionsHeld() - 1);
 
                 if (Player.getCurrentVitality() > Player.getMaxVitality()) {
                     Player.setCurrentVitality(Player.getMaxVitality());
@@ -254,7 +254,7 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
                 lblPlayerHealth.setText("Health: " + Player.getCurrentVitality() + " / " + Player.getMaxVitality());
                 lblPotionsHeld.setText("Held: " + Player.getMegaPotionsHeld());
 
-                areaAttackMessage.setText("Your mega potion heals you for 20 health points.");
+                areaAttackMessage.setText("Your mega potion heals you for 50 health points.");
 
                 btnHeal.setEnabled(false);
             } else {
@@ -265,19 +265,19 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
         if (rdMaxPotion.isSelected()) {
             if (Player.getMaxPotionsHeld() > 0) {
                 Player.setCurrentVitality(Player.getMaxVitality());
-
-                Player.setPotionsHeld(Player.getPotionsHeld() - 1);
-
+                
+                Player.setMaxPotionsHeld(Player.getMaxPotionsHeld() - 1);
+                
                 if (Player.getCurrentVitality() > Player.getMaxVitality()) {
                     Player.setCurrentVitality(Player.getMaxVitality());
                 }
-
+                
                 prgPlayerHealth.setValue(Player.getCurrentVitality());
                 lblPlayerHealth.setText("Health: " + Player.getCurrentVitality() + " / " + Player.getMaxVitality());
-                lblPotionsHeld.setText("Held: " + Player.getMaxPotionsHeld());
-
+                lblMaxPotionsHeld.setText("Held: " + Player.getMaxPotionsHeld());
+                
                 areaAttackMessage.setText("Your max potion fully heals you.");
-
+                
                 btnHeal.setEnabled(false);
             } else {
                 JOptionPane.showMessageDialog(null, "You have no more max potions left!");
@@ -286,10 +286,10 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHealActionPerformed
 
     private void btnStartBattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartBattleActionPerformed
-        // TODO add your handling code here:
+        // generates final boss
         areaAttackMessage.setText("");
 
-        Monster finalBoss = new Monster("finalBoss",2500 + Player.getPrestige() * 2500,2500 + Player.getPrestige() * 2500,100,100,50 + Player.getPrestige() * 50,20 + Player.getPrestige() * 8);
+        Monster bossGusTheGorilla = new Monster("Gus the Destroyer",2500 + Player.getPrestige() * 2500,2500 + Player.getPrestige() * 2500,100,100,50 + Player.getPrestige() * 50,20 + Player.getPrestige() * 8);
 
         lblEnemyName.setText(Monster.getMonsterName());
         lblEnemyHealth.setText("Health: " + Monster.getCurrentVitality() + " / " + Monster.getMaxVitality());

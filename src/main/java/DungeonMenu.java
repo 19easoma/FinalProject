@@ -259,11 +259,11 @@ public class DungeonMenu extends javax.swing.JFrame {
     private void btnStartBattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartBattleActionPerformed
         // TODO add your handling code here:
         areaAttackMessage.setText("");
-        
         btnContinue.setEnabled(false);
         
         int newMonster = monsterRoll.nextInt(24);
         
+        // randomly generates new monster
         switch (newMonster) {
             case 0:
                 Monster monsterGoblin = new Monster("Goblin",42 + Player.getBossCount() * 8,42 + Player.getBossCount() * 8,16,16,9 + Player.getBossCount() * 2,4 + Player.getBossCount());
@@ -293,7 +293,7 @@ public class DungeonMenu extends javax.swing.JFrame {
                 Monster monsterSkeletonDancer = new Monster("Skeleton Dancer",38 + Player.getBossCount() * 8,38 + Player.getBossCount() * 8,16,10,10 + Player.getBossCount() * 2,4 + Player.getBossCount());
                 break;
             case 9:
-                Monster monsterTinySkeletonBoy = new Monster("Tiny Skeleton Boy",12 + Player.getBossCount() * 8,12 + Player.getBossCount() * 8,4,4,16 + Player.getBossCount() * 2,1 + Player.getBossCount());
+                Monster monsterTinySkeletonBoy = new Monster("Tiny Skeleton Boy",20 + Player.getBossCount() * 8,20 + Player.getBossCount() * 8,4,4,16 + Player.getBossCount() * 2,1 + Player.getBossCount());
                 break; 
             case 10:
                 Monster monsterThat = new Monster("Small Rodent Carrying Infectious Disease",18 + Player.getBossCount() * 8,18 + Player.getBossCount() * 8,20,16,18 + Player.getBossCount() * 2,2 + Player.getBossCount());
@@ -326,13 +326,13 @@ public class DungeonMenu extends javax.swing.JFrame {
                 Monster monsterLakeSpirit = new Monster("Lake Spirit",40 + Player.getBossCount() * 8,40 + Player.getBossCount() * 8,26,8,10 + Player.getBossCount() * 2,8 + Player.getBossCount());
                 break; 
             case 20:
-                Monster monsterHillGiant = new Monster("Hill Giant",80 + Player.getBossCount() * 8,80 + Player.getBossCount() * 8,40,36,14 + Player.getBossCount() * 2,8 + Player.getBossCount());
+                Monster monsterHillGiant = new Monster("Hill Giant",80 + Player.getBossCount() * 8,80 + Player.getBossCount() * 8,40,36,14 + Player.getBossCount() * 2,6 + Player.getBossCount());
                 break;
             case 21:
                 Monster monsterBabyWyvern = new Monster("Baby Wyvern",46 + Player.getBossCount() * 8,46 + Player.getBossCount() * 8,26,16,18 + Player.getBossCount() * 2,4 + Player.getBossCount());
                 break;
             case 22:
-                Monster monsterEnt = new Monster("Ent",60 + Player.getBossCount() * 8,60 + Player.getBossCount() * 8,40,14,6 + Player.getBossCount() * 2,12 + Player.getBossCount());
+                Monster monsterEnt = new Monster("Ent",60 + Player.getBossCount() * 8,60 + Player.getBossCount() * 8,40,14,6 + Player.getBossCount() * 2,10 + Player.getBossCount());
                 break;
             case 23:
                 Monster monsterHarpy = new Monster("Harpy",38 + Player.getBossCount() * 8,38 + Player.getBossCount() * 8,26,20,14 + Player.getBossCount() * 2,4 + Player.getBossCount());
@@ -354,20 +354,22 @@ public class DungeonMenu extends javax.swing.JFrame {
         prgEnemyHealth.setMaximum(Monster.getMaxVitality());
         prgEnemyHealth.setValue(Monster.getCurrentVitality());
         
+        // spawns a boss after 5 monsters have been defeated
         if (count == 5) {
             JOptionPane.showMessageDialog(null, "You hear a rumble in the distance. A large monster appears!");
             
             int newBoss = bossRoll.nextInt(4);
             
+            // randomly generates new boss
             switch (newBoss) {
                 case 0:
-                    Monster bossWyvern = new Monster("Wyvern",200 + Player.getBossCount() * 8,200 + Player.getBossCount() * 8,100,100,18 + Player.getBossCount() * 2,6 + Player.getBossCount());
+                    Monster bossWyvern = new Monster("Wyvern",200 + Player.getBossCount() * 8,200 + Player.getBossCount() * 8,100,100,16 + Player.getBossCount() * 2,6 + Player.getBossCount());
                     break;
                 case 1:
                     Monster bossCyclopsWithAnEyepatch = new Monster("Cyclops With An Eyepatch",50 + Player.getBossCount() * 8,50 + Player.getBossCount() * 8,100,100,34 + Player.getBossCount() * 2,2 + Player.getBossCount());
                     break;
                 case 2:
-                    Monster bossManticore = new Monster("Manticore",180 + Player.getBossCount() * 8,180 + Player.getBossCount() * 8,100,100,24 + Player.getBossCount() * 2,6 + Player.getBossCount());
+                    Monster bossManticore = new Monster("Manticore",180 + Player.getBossCount() * 8,180 + Player.getBossCount() * 8,100,100,24 + Player.getBossCount() * 2,4 + Player.getBossCount());
                     break;
                 case 3:
                     Monster bossIronGolem = new Monster("Iron Golem",50 + Player.getBossCount() * 8,50 + Player.getBossCount() * 8,100,100,10 + Player.getBossCount() * 2,20 + Player.getBossCount());
@@ -388,7 +390,7 @@ public class DungeonMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStartBattleActionPerformed
 
     private void btnAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAttackActionPerformed
-        // TODO add your handling code here:
+        // subtracts player and monster defense from each attack
         monsterDefenseCheck = Player.getPower() - Monster.getDefense();
         
         if (monsterDefenseCheck < 1) {
@@ -425,17 +427,8 @@ public class DungeonMenu extends javax.swing.JFrame {
         
         lblPlayerHealth.setText("Health: " + Player.getCurrentVitality() + " / " + Player.getMaxVitality());
         lblEnemyHealth.setText("Health: " + Monster.getCurrentVitality() + " / " + Monster.getMaxVitality());
-
-        if (Player.getCurrentVitality() == 0) {
-            JOptionPane.showMessageDialog(null, "You have been defeated!");
-            
-            Player.setCurrentVitality(Player.getMaxVitality());
-            
-            GameOverScreen GameOverScreen = new GameOverScreen();
-            GameOverScreen.show();
-            this.dispose();
-        }
         
+        // monster defeated
         if (Monster.getCurrentVitality() == 0) {
             areaAttackMessage.setText("You have defeated " + Monster.getMonsterName() + "! You recieve " + Monster.getDroppedEXP() + " experience points and " + Monster.getDroppedGold() + " gold. Continue to the next monster.");
             Player.setCurrentEXP(Player.getCurrentEXP() + Monster.getDroppedEXP());
@@ -449,7 +442,7 @@ public class DungeonMenu extends javax.swing.JFrame {
             defeatedMonster = null;
             
             
-            
+            // boss defeated
             if (count == 5) {
                 btnAttack.setEnabled(false);
                 btnHeal.setEnabled(false);
@@ -466,6 +459,7 @@ public class DungeonMenu extends javax.swing.JFrame {
                 count = count + 1;     
             } 
             
+            // player level-up system
             if (Player.getCurrentEXP() >= 100){
                 int vitalityIncrease =  3 + (int)(Math.random() * (8 - 3));
                 int powerIncrease =  1 + (int)(Math.random() * (3 - 1));
@@ -486,6 +480,7 @@ public class DungeonMenu extends javax.swing.JFrame {
             }
         }
         
+        // player defeated
         if (Player.getCurrentVitality() == 0) {
             JOptionPane.showMessageDialog(null, "You have been defeated!");
             
@@ -498,12 +493,12 @@ public class DungeonMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAttackActionPerformed
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
-        // TODO add your handling code here:
+        // re-initializes the battle
         btnStartBattle.setEnabled(true);  
     }//GEN-LAST:event_btnContinueActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        // TODO add your handling code here:
+        // completes a stage and brings player back to main menu
         Player.setBossCount(Player.getBossCount() + 1);
         
         System.out.println(Player.getBossCount());
@@ -516,7 +511,7 @@ public class DungeonMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void btnHealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHealActionPerformed
-        // TODO add your handling code here:
+        // allows player to use potions
         if (rdPotion.isSelected()) {
             if (Player.getPotionsHeld() > 0) {
                 Player.setCurrentVitality(Player.getCurrentVitality() + 20);
