@@ -286,10 +286,10 @@ public class FinalDungeonMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHealActionPerformed
 
     private void btnStartBattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartBattleActionPerformed
-        // TODO add your handling code here:
+        // generates final boss
         areaAttackMessage.setText("");
 
-        Monster finalBoss = new Monster("finalBoss",2500 + Player.getPrestige() * 2500,2500 + Player.getPrestige() * 2500,100,100,50 + Player.getPrestige() * 50,20 + Player.getPrestige() * 8);
+        Monster bossGusTheGorilla = new Monster("Gus the Destroyer",2500 + Player.getPrestige() * 2500,2500 + Player.getPrestige() * 2500,100,100,50 + Player.getPrestige() * 50,20 + Player.getPrestige() * 8);
 
         lblEnemyName.setText(Monster.getMonsterName());
         lblEnemyHealth.setText("Health: " + Monster.getCurrentVitality() + " / " + Monster.getMaxVitality());

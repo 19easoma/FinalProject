@@ -35,14 +35,15 @@ public class StartMenu extends javax.swing.JFrame {
         lblTitleName = new javax.swing.JLabel();
         btnCloseStart = new javax.swing.JButton();
         btnConfirmName = new javax.swing.JButton();
+        lblSubtitleName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblEnterName.setText("Please enter your name:");
 
-        lblTitleName.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        lblTitleName.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         lblTitleName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitleName.setText("Title");
+        lblTitleName.setText("Crimson Dungeons and Gold Dragons");
 
         btnCloseStart.setText("Close");
         btnCloseStart.addActionListener(new java.awt.event.ActionListener() {
@@ -58,41 +59,40 @@ public class StartMenu extends javax.swing.JFrame {
             }
         });
 
+        lblSubtitleName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblSubtitleName.setText("RPG Simulator");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCloseStart))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblEnterName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblTitleName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(btnConfirmName))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(txtEnterName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(txtEnterName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEnterName)
+                    .addComponent(lblTitleName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConfirmName)
+                    .addComponent(lblSubtitleName))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCloseStart))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addComponent(lblTitleName, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSubtitleName)
+                .addGap(31, 31, 31)
                 .addComponent(lblEnterName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEnterName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnConfirmName)
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btnCloseStart))
         );
 
@@ -106,7 +106,7 @@ public class StartMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseStartActionPerformed
 
     private void btnConfirmNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmNameActionPerformed
-        // TODO add your handling code here:
+        // Defines player name:
         String PlayerName = txtEnterName.getText();
         Global Player = new Global(PlayerName);
         
@@ -156,6 +156,7 @@ public class StartMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnCloseStart;
     private javax.swing.JButton btnConfirmName;
     private javax.swing.JLabel lblEnterName;
+    private javax.swing.JLabel lblSubtitleName;
     private javax.swing.JLabel lblTitleName;
     private javax.swing.JTextField txtEnterName;
     // End of variables declaration//GEN-END:variables
