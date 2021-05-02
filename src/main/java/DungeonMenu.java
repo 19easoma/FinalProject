@@ -338,7 +338,7 @@ public class DungeonMenu extends javax.swing.JFrame {
                 Monster monsterHarpy = new Monster("Harpy",38 + Player.getBossCount() * 8,38 + Player.getBossCount() * 8,26,20,14 + Player.getBossCount() * 2,4 + Player.getBossCount());
                 break;
             case 24:
-                Monster monsterPhilosophyMajor = new Monster("Philosophy Major",5 + Player.getBossCount() * 2,5 + Player.getBossCount() * 8,50,50,10 + Player.getBossCount() * 2,1000 + Player.getBossCount());
+                Monster monsterPhilosophyMajor = new Monster("Philosophy Major",5 + Player.getBossCount() * 2,5 + Player.getBossCount() * 2,50,50,10 + Player.getBossCount() * 2,1000 + Player.getBossCount());
                 break; 
         }
         
